@@ -1,0 +1,7 @@
+// Importing variables
+@import '../components/variables.scss';
+
+
+.gradient {
+	background: linear-gradient(to right, $primary-color, $secondary-color);
+}

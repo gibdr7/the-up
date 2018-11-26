@@ -1,0 +1,21 @@
+// Importing variables
+@import '../variables.scss';
+
+.footer {
+	display: flex;
+	padding: 1.5rem 1.5rem;
+	line-height: 1.5rem;
+	a {
+		border-bottom: 1px solid;
+		color: black;
+	}
+	a:hover {
+		color: $secondary-color;
+	}
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
