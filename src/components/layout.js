@@ -5,10 +5,10 @@ import Footer from './Footer/footer'
 import Navbar from './Nav/navbar'
 
 const Layout = ({ children }) => (
-  <div>
+  <div className="sticky-footer">
     <Helmet />
-	<Navbar />
-	{children}
+    <Navbar />
+    {children}
     <Footer />
   </div>
 )

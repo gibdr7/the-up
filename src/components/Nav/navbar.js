@@ -8,7 +8,7 @@ const Navbar = () => (
 		<nav className="navbar gradientBg">
 			<div className="container">
 				<a class="navbar-item" href="/">
-            		<h1 className="title is-size-10 is-uppercase has-text-white-ter">The up</h1>
+                <h1 className="title is-1 is-uppercase has-text-white-ter no-hover">The up</h1>
           		</a>
 				<div id="navbarMenuHeroA" className="navbar-menu">
 					<div className="navbar-end">
@@ -63,7 +63,9 @@ const Navbar = () => (
                 </div>
               </div>
 						</span>
-            <div class="navVR">&nbsp;</div>
+            <div>
+              <div class="navVR">&nbsp;</div>
+            </div>
 						<span className="navbar-item">
               <div class="dropdown is-hoverable is-right">
                 <div class="dropdown-trigger">

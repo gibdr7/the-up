@@ -12,6 +12,10 @@
 	background: linear-gradient(to right, $primary-color, $secondary-color);
 }
 
+.no-hover {
+	pointer-events: none;
+}
+
 .no-padding {
 	padding: 0;
 	border: 0;
@@ -20,9 +24,10 @@
 
 .navVR {
 	margin-top: 19px;
-	width:2px;
+	width:1px;
+	border-left: 1px white;
+	border-right: 1px white;
 	height:15px;
-	background-color: white;
 	margin-left: 3px;
 	margin-right: 3px;
 }
