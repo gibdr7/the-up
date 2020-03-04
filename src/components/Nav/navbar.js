@@ -6,7 +6,7 @@ const Navbar = () => (
   <div className="hero-head is-hidden-mobile">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"></link>
 		<nav className="navbar gradientBg">
-			<div className="container">
+			<div className="container is-fluid">
 				<a class="navbar-item" href="/">
           <h1 className="title is-1 is-uppercase has-text-white-ter no-hover">The up</h1>
         </a>
