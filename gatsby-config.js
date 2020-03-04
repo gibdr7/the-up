@@ -11,23 +11,29 @@ module.exports = {
     facebook: 'https://www.facebook.com/gibsondr',
     gatsby: 'https://www.gatsbyjs.org/',
     bulma: 'https://bulma.io/',
-    siteUrl: 'https://www.example.com',
+    siteUrl: 'http://localhost:8000',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'pages',
         path: 'src/pages',
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-mdx',
-      options: {
-        defaultLayouts: {
-          default: require.resolve('./src/components/layout.js'),
-        },
       },
     },
     'gatsby-remark-reading-time',
@@ -36,15 +42,36 @@ module.exports = {
       options: {
         plugins: [
           `gatsby-remark-reading-time`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+              wrapperStyle: 'margin: 10px;'
+            },
+          },
         ],
       },
+    },
+    {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        useAutoGen: true,
+        exclude: [
+          // `/dev-404-page`,
+          // `/404`,
+          // `/404.html`,
+          // `/offline-plugin-app-shell-fallback`,
+        ],
+        useClassNames: true,
+      }
     },
     {
       resolve: "gatsby-plugin-page-progress",
       options: {
         height: 5,
         prependToBody: false,
-        color: `#663399`
+        color: `#663399`,
+        excludePaths: ["/"],
       }
     },
     {

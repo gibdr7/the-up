@@ -8,8 +8,13 @@ const Navbar = () => (
 		<nav className="navbar gradientBg">
 			<div className="container">
 				<a class="navbar-item" href="/">
-                <h1 className="title is-1 is-uppercase has-text-white-ter no-hover">The up</h1>
-          		</a>
+          <h1 className="title is-1 is-uppercase has-text-white-ter no-hover">The up</h1>
+        </a>
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
 				<div id="navbarMenuHeroA" className="navbar-menu">
 					<div className="navbar-end">
 						<span className="navbar-item">
@@ -30,7 +35,7 @@ const Navbar = () => (
                     <a href="/money-management/investing" class="dropdown-item">
                       Investing
                     </a>
-                    <a href="/money-management/calculators" class="dropdown-item is-active">
+                    <a href="/money-management/calculators" activeClassName="is-active" class="dropdown-item is-active">
                       Calculators
                     </a>
                     <hr class="dropdown-divider"></hr>
@@ -70,7 +75,7 @@ const Navbar = () => (
               <div class="dropdown is-hoverable is-right">
                 <div class="dropdown-trigger">
                   <a href="/misc" class="navbarLink has-text-white" aria-haspopup="true" aria-controls="dropdown-menu">
-                    <span class="icon">
+                    <span class="icon no-padding">
                       <i class="fas fa-ellipsis-h"></i>
                     </span>
                     <span>Misc</span>
