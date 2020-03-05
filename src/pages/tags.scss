@@ -1,6 +1,15 @@
 // Importing variables
 @import '../components/variables.scss';
 
+.tag-page-container {
+	margin: 10px 40px;
+
+    display: grid;
+    grid-template-rows: max-content 1fr max-content;
+    grid-template-columns: 1fr;
+    row-gap: 4px;
+}
+
 div.tagsContainer {
     padding: 50px;
 }
@@ -9,7 +18,8 @@ h1.is-title {
     margin-bottom: 50px;
 }
 
-ul.is-primary li a {
+ul li a,
+ul + a {
     font-size: 36px;
     line-height: 64px;
     color: $secondary-color;

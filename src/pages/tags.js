@@ -5,7 +5,7 @@ import kebabCase from 'lodash/kebabCase'
 // Components
 import Layout from '../components/layout'
 import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
-import "../components/tags.scss";
+import "./tags.scss";
 
 import { Link, graphql } from 'gatsby'
 const TagsPage = ({
@@ -23,13 +23,13 @@ const TagsPage = ({
 
   return (
     <Layout>
-      <div className="blog-post-container">
+      <div className="tag-page-container">
         <div className="breadcrumb-container">
           <Breadcrumb crumbs={crumbs} crumbSeparator=" / " />
         </div>
         <div className="tagsContainer has-text-centered">
           <h1 className="is-title is-size-1">Tags</h1>
-          <ul className="is-primary has-text-weight-bold">
+          <ul className="has-text-weight-bold">
             {group.map(tag => (
               <li key={tag.fieldValue}>
                 <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>

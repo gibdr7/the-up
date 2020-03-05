@@ -1,34 +1,46 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 // Components
-import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
+import { Link, graphql } from 'gatsby'
+import Layout from '../components/layout'
+import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
+import "../pages/tags.scss";
+
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
   const tagHeader = `${totalCount} post${
-    totalCount === 1 ? "" : "s"
+    totalCount === 1 ? '' : 's'
   } tagged with "${tag}"`
+  const {
+    breadcrumb: { crumbs },
+  } = pageContext
+
   return (
     <Layout>
-      <div>
-        <h1>{tagHeader}</h1>
-        <ul>
-          {edges.map(({ node }) => {
-            const { path } = node.frontmatter
-            const { title } = node.frontmatter
-            return (
-              <li key={path}>
-                <Link to={path}>{title}</Link>
-              </li>
-            )
-          })}
-        </ul>
-        {/*
-                This links to a page that does not yet exist.
-                You'll come back to it!
-              */}
-        <Link to="/tags">All tags</Link>
+      <div className="tag-page-container">
+        <div className="breadcrumb-container">
+          <Breadcrumb crumbs={crumbs} crumbSeparator=" / " />
+        </div>
+        <div className="tagsContainer has-text-centered">
+          <h1 className="is-title is-size-1">{tagHeader}</h1>
+          <ul className="has-text-weight-bold">
+            {edges.map(({ node }) => {
+              const { path } = node.frontmatter
+              const { title } = node.frontmatter
+              return (
+                <li key={path}>
+                  <Link to={path}>{title}</Link>
+                </li>
+              )
+            })}
+          </ul >
+          {/*
+                  This links to a page that does not yet exist.
+                  You'll come back to it!
+                */}
+          <Link className="has-text-weight-bold" to="/tags">All tags</Link>
+        </div>
       </div>
     </Layout>
   )
@@ -48,7 +60,7 @@ Tags.propTypes = {
               path: PropTypes.string.isRequired,
             }),
           }),
-        }).isRequired
+        }).isRequired,
       ),
     }),
   }),
