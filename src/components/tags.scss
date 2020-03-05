@@ -1,0 +1,16 @@
+// Importing variables
+@import '../components/variables.scss';
+
+div.tagsContainer {
+    padding: 50px;
+}
+
+h1.is-title {
+    margin-bottom: 50px;
+}
+
+ul.is-primary li a {
+    font-size: 36px;
+    line-height: 64px;
+    color: $secondary-color;
+}
