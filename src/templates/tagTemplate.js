@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
-import "../pages/tags.scss";
+import '../pages/tags.scss'
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
@@ -26,20 +26,23 @@ const Tags = ({ pageContext, data }) => {
           <h1 className="is-title is-size-1">{tagHeader}</h1>
           <ul className="has-text-weight-bold">
             {edges.map(({ node }) => {
-              const { path } = node.frontmatter
               const { title } = node.frontmatter
+              const { pagePath } = node.fields
+              console.log(pagePath)
               return (
-                <li key={path}>
-                  <Link to={path}>{title}</Link>
+                <li key={pagePath}>
+                  <Link to={pagePath}>{title}</Link>
                 </li>
               )
             })}
-          </ul >
+          </ul>
           {/*
                   This links to a page that does not yet exist.
                   You'll come back to it!
                 */}
-          <Link className="has-text-weight-bold" to="/tags">All tags</Link>
+          <Link className="has-text-weight-bold" to="/tags">
+            All tags
+          </Link>
         </div>
       </div>
     </Layout>
@@ -57,8 +60,10 @@ Tags.propTypes = {
           node: PropTypes.shape({
             frontmatter: PropTypes.shape({
               title: PropTypes.string.isRequired,
-              path: PropTypes.string.isRequired,
             }),
+            fields: PropTypes.shape({
+              pagePath: PropTypes.string.isRequired,
+            })
           }),
         }).isRequired,
       ),
@@ -78,7 +83,9 @@ export const pageQuery = graphql`
         node {
           frontmatter {
             title
-            path
+          }
+          fields {
+            pagePath
           }
         }
       }

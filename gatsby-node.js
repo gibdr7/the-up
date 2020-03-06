@@ -1,6 +1,8 @@
 
 const path = require("path");
 const _ = require("lodash");
+const titleSlug = (str) => str.toLowerCase().replace(/[^\w\d\s]+/g, "").replace(/\s+/g, '-')
+
 // Log out information after a build is done
 exports.onPostBuild = ({ reporter }) => {
   reporter.info(`Your Gatsby site has been built!`)
@@ -21,9 +23,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           node {
             fields {
               slug
+              pagePath
             }
             frontmatter {
-              path
+              title
+              category
+              subcategory
               tags
             }
           }
@@ -45,12 +50,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const posts = result.data.postsRemark.edges
   posts.forEach(({ node }) => {
     createPage({
-      path: node.frontmatter.path,
-      // path: `/${node.frontmatter.category}/${node.frontmatter.subcategory}/${node.frontmatter.titletoLowerCase().replace(/[^a-zA-Z0-9]+/g, "-")}`,
+      // path: node.frontmatter.path,  // TODO: if path provided, use that, otherwise format like below
+      path: `/${[node.frontmatter.category, node.frontmatter.subcategory, node.frontmatter.title].map(el => titleSlug(el)).join('/')}`,
       component: blogPostTemplate,
       context: {
         tags: node.frontmatter.tags,
-      }, // additional data can be passed via context
+        pagePath: `/${[node.frontmatter.category, node.frontmatter.subcategory, node.frontmatter.title].map(el => titleSlug(el)).join('/')}`,
+      },
     })
   })
   // Extract tag data from query
@@ -75,6 +81,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       node,
       name: `slug`,
       value: slug,
+    })
+    const pagePath = `/${[node.frontmatter.category, node.frontmatter.subcategory, node.frontmatter.title].map(el => titleSlug(el)).join('/')}`
+    createNodeField({
+      node,
+      name: `pagePath`,
+      value: pagePath,
     })
   }
 }
