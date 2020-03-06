@@ -20,7 +20,7 @@ const Midsection = () => (
 						<article className="media">
 							<figure className="media-left">
 								<span className="icon is-facebook">
-									<FaSass size="fa-2x" color="#d22780" />
+									<FaSass size="28px" color="#d22780" />
 								</span>
 							</figure>
 							<div className="media-content">
@@ -38,7 +38,7 @@ const Midsection = () => (
 						<article className="media">
 							<figure className="media-left">
 								<span className="icon is-facebook">
-									<FaHtml5 size="fa-2x" className="has-text-danger" />
+									<FaHtml5 size="28px" className="has-text-danger" />
 								</span>
 							</figure>
 							<div className="media-content">
@@ -57,7 +57,7 @@ const Midsection = () => (
 						<article className="media">
 							<figure className="media-left">
 								<span className="icon is-facebook">
-									<FaReact size="fa-2x" color="#5e227f" />
+									<FaReact size="28px" color="#5e227f" />
 								</span>
 							</figure>
 							<div className="media-content">
@@ -76,7 +76,7 @@ const Midsection = () => (
 						<article className="media">
 							<figure className="media-left">
 								<span className="icon is-facebook">
-									<FaMobileAlt size="fa-2x" color="blue" />
+									<FaMobileAlt size="28px" color="blue" />
 								</span>
 							</figure>
 							<div className="media-content">
@@ -96,7 +96,7 @@ const Midsection = () => (
 						<article className="media">
 							<figure className="media-left">
 								<span className="icon is-facebook">
-									<FaOsi size="fa-2x" className="has-text-primary" />
+									<FaOsi size="28px" className="has-text-primary" />
 								</span>
 							</figure>
 							<div className="media-content">
@@ -114,7 +114,7 @@ const Midsection = () => (
 						<article className="media">
 							<figure className="media-left">
 								<span className="icon is-facebook">
-									<FaRocket size="fa-2x" className="has-text-danger" />
+									<FaRocket size="28px" className="has-text-danger" />
 								</span>
 							</figure>
 							<div className="media-content">

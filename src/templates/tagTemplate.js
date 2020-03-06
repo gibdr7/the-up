@@ -28,7 +28,6 @@ const Tags = ({ pageContext, data }) => {
             {edges.map(({ node }) => {
               const { title } = node.frontmatter
               const { pagePath } = node.fields
-              console.log(pagePath)
               return (
                 <li key={pagePath}>
                   <Link to={pagePath}>{title}</Link>

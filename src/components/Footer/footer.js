@@ -34,19 +34,19 @@ const Footer = () => (
           <article className="media center">
             <span className="icon">
               <a href={data.site.siteMetadata.instagram}>
-                <FaInstagram size="fa-2x" />
+                <FaInstagram size="42px" />
               </a>
             </span>
             &nbsp;
             <span className="icon">
               <a href={data.site.siteMetadata.github}>
-                <FaGithub size="fa-2x" />
+                <FaGithub size="42px" />
               </a>
             </span>
             &nbsp;
             <span className="icon">
               <a href={data.site.siteMetadata.facebook}>
-                <FaFacebook size="fa-2x" />
+                <FaFacebook size="42px" />
               </a>
             </span>
             &nbsp;

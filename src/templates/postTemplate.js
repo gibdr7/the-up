@@ -61,9 +61,9 @@ export default function Template({
         </div>
         <div className="tagging field is-grouped">
           {frontmatter.tags.map((tag) => 
-            <div class="control">
-              <div class="tags has-addons">
-                <a href={"/tags/"+tag.replace(" ","-")} class="tag is-primary">{tag}</a>
+            <div className="control" key={tag}>
+              <div className="tags has-addons">
+                <a href={"/tags/"+tag.replace(" ","-")} className="tag is-primary">{tag}</a>
               </div>
             </div>
           )}
