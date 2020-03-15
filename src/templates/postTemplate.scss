@@ -3,7 +3,7 @@
 
 
 .gradient {
-	background: linear-gradient(to left, primary, $secondary-color);
+	background: linear-gradient(to left, primary, $sand-tan);
 }
 
 .blog-post-container {
@@ -12,12 +12,12 @@
     display: grid;
     grid-template-rows: max-content 1fr max-content;
     grid-template-columns: 1fr;
-    row-gap: 4px;
+    row-gap: 1px;
 }
 
 div.breadcrumb-container .breadcrumb a{
 	text-transform: uppercase;
-	color: hsl(204, 86%, 53%);
+	color: $sand-tan-shadow;
 }
 
 .title.is-2.has-text-centered.is-uppercase {

@@ -1,8 +1,9 @@
 @import '../components/variables.scss';
 
 .pageNumberLink {
-	color: $primary-color;
+	color: $sand-tan-shadow;
 	font-size: 1em;
+	font-weight: 600;
 }
 
 .category-page-container {
@@ -11,12 +12,12 @@
     display: grid;
     grid-template-rows: max-content 1fr max-content 1fr;
     grid-template-columns: 1fr;
-    row-gap: 4px;
+    row-gap: 1px;
 }
 
 div.breadcrumb-container .breadcrumb a{
 	text-transform: uppercase;
-	color: hsl(204, 86%, 53%);
+	color: $sand-tan-shadow;
 }
 
 ul {
@@ -26,7 +27,7 @@ ul {
 div ul li a,
 h1 + a {
 	line-height: normal;
-	color: $secondary-color;
+	color: $sand-tan;
 	padding: 0 6px;
 }
 

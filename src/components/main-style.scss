@@ -6,7 +6,7 @@
 
 .gradientBg {
 	display: flex;
-	background: linear-gradient(to left, $primary-color, $secondary-color);
+	background: linear-gradient(to left, $night-blue, $sand-tan);
 }
 
 .center {
@@ -21,7 +21,7 @@
     display: grid;
     grid-template-rows: max-content 1fr max-content;
     grid-template-columns: 1fr;
-    row-gap: 4px;
+    row-gap: 1px;
 }
 
 .not-found-box {
