@@ -6,7 +6,7 @@
 
 .gradientBg {
 	display: flex;
-	background: linear-gradient(to right, $primary, $secondary-color);
+	background: linear-gradient(to left, $primary-color, $secondary-color);
 }
 
 .center {

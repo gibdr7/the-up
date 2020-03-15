@@ -27,7 +27,7 @@ export default function Template({
           />
         </div>
         <div className="blog-post">
-          <h1 className="title is-1 has-text-centered is-uppercase">{frontmatter.title}</h1>
+          <h1 className="title is-2 has-text-centered is-uppercase">{frontmatter.title}</h1>
           <div className="columns subtitle is-5 is-spaced">
             <h3 className="column has-text-right">{frontmatter.date}</h3>
             <h3 className="column">{fields.readingTime.text}{' '}</h3>
@@ -36,19 +36,19 @@ export default function Template({
             <article className="media center">
               <span className="icon pads">
                 <a href={data.site}>
-                  <FaInstagram size="40px"/>
+                  <FaInstagram size="28px"/>
                 </a>
               </span>
               &nbsp;
               <span className="icon pads">
                 <a href={data.site}>
-                  <FaGithub size="40px"/>
+                  <FaGithub size="28px"/>
                 </a>
               </span>
               &nbsp;
               <span className="icon pads">
                 <a href={data.site}>
-                  <FaFacebook size="40px"/>
+                  <FaFacebook size="28px"/>
                 </a>
               </span>
               &nbsp;

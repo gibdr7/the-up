@@ -1,0 +1,45 @@
+@import '../components/variables.scss';
+
+.pageNumberLink {
+	color: $primary-color;
+	font-size: 1em;
+}
+
+.category-page-container {
+	margin: 10px 40px;
+
+    display: grid;
+    grid-template-rows: max-content 1fr max-content 1fr;
+    grid-template-columns: 1fr;
+    row-gap: 4px;
+}
+
+div.breadcrumb-container .breadcrumb a{
+	text-transform: uppercase;
+	color: hsl(204, 86%, 53%);
+}
+
+ul {
+	display: flex;
+}
+
+div ul li a,
+h1 + a {
+	line-height: normal;
+	color: $secondary-color;
+	padding: 0 6px;
+}
+
+.pageNumbers {
+	margin: 20px 0;
+	display: flex;
+	justify-content: center;
+}
+
+.tile.is-ancestor:not(:last-child) {
+	margin: 20px 0;
+}
+
+ul.numbers li {
+	margin: 0 2px;
+}

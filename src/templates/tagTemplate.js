@@ -23,7 +23,7 @@ const Tags = ({ pageContext, data }) => {
           <Breadcrumb crumbs={crumbs} crumbSeparator=" / " />
         </div>
         <div className="tagsContainer has-text-centered">
-          <h1 className="is-title is-size-1">{tagHeader}</h1>
+          <h1 className="is-title is-size-3">{tagHeader}</h1>
           <ul className="has-text-weight-bold">
             {edges.map(({ node }) => {
               const { title } = node.frontmatter

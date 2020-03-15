@@ -1,7 +1,10 @@
-
-const path = require("path");
-const _ = require("lodash");
-const titleSlug = (str) => str.toLowerCase().replace(/[^\w\d\s]+/g, "").replace(/\s+/g, '-')
+const path = require('path')
+const _ = require('lodash')
+const titleSlug = str =>
+  str
+    .toLowerCase()
+    .replace(/[^\w\d\s]+/g, '')
+    .replace(/\s+/g, '-')
 
 // Log out information after a build is done
 exports.onPostBuild = ({ reporter }) => {
@@ -11,7 +14,7 @@ exports.onPostBuild = ({ reporter }) => {
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
   const blogPostTemplate = path.resolve(`src/templates/postTemplate.js`)
-  const tagTemplate = path.resolve("src/templates/tagTemplate.js")
+  const tagTemplate = path.resolve('src/templates/tagTemplate.js')
 
   const result = await graphql(`
     {
@@ -51,11 +54,23 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   posts.forEach(({ node }) => {
     createPage({
       // path: node.frontmatter.path,  // TODO: if path provided, use that, otherwise format like below
-      path: `/${[node.frontmatter.category, node.frontmatter.subcategory, node.frontmatter.title].map(el => titleSlug(el)).join('/')}`,
+      path: `/${[
+        node.frontmatter.category,
+        node.frontmatter.subcategory,
+        node.frontmatter.title,
+      ]
+        .map(el => titleSlug(el))
+        .join('/')}`,
       component: blogPostTemplate,
       context: {
         tags: node.frontmatter.tags,
-        pagePath: `/${[node.frontmatter.category, node.frontmatter.subcategory, node.frontmatter.title].map(el => titleSlug(el)).join('/')}`,
+        pagePath: `/${[
+          node.frontmatter.category,
+          node.frontmatter.subcategory,
+          node.frontmatter.title,
+        ]
+          .map(el => titleSlug(el))
+          .join('/')}`,
       },
     })
   })
@@ -71,7 +86,70 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       },
     })
   })
+  const blogListTemplate = path.resolve(`./src/templates/blogListTemplate.js`)
+  const postsPerPage = 9
+  const postsWithoutFeatured = posts.filter(({ node }) => {
+    return !node.frontmatter.featured
+  })
+  const numPages = Math.ceil(postsWithoutFeatured.length / postsPerPage)
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/blog` : `/blog/page/${i + 1}`,
+      component: blogListTemplate,
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        currentPage: i + 1,
+        numPages,
+      },
+    })
+  })
+
+  const blogCategoryTemplate = path.resolve(
+    `./src/templates/blogCategoryTemplate.js`,
+  )
+  const categories = []
+
+  posts.forEach((post, index) => {
+    categories.push(post.node.frontmatter.category)
+
+    createPage({
+      path: post.node.fields.pagePath,
+      component: blogPostTemplate,
+      context: {
+        pagePath: post.node.fields.pagePath,
+      },
+    })
+  })
+  const countCategories = categories.reduce((prev, curr) => {
+    prev[curr] = (prev[curr] || 0) + 1
+    return prev
+  }, {})
+
+  const allCategories = Object.keys(countCategories)
+
+  allCategories.forEach((cat, i) => {
+    const link = `/${_.kebabCase(cat)}`
+
+    Array.from({
+      length: Math.ceil(countCategories[cat] / postsPerPage),
+    }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? link : `${link}/page/${i + 1}`,
+        component: blogCategoryTemplate,
+        context: {
+          allCategories: allCategories,
+          category: cat,
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          currentPage: i + 1,
+          numPages: Math.ceil(countCategories[cat] / postsPerPage),
+        },
+      })
+    })
+  })
 }
+
 const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
@@ -82,7 +160,13 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: `slug`,
       value: slug,
     })
-    const pagePath = `/${[node.frontmatter.category, node.frontmatter.subcategory, node.frontmatter.title].map(el => titleSlug(el)).join('/')}`
+    const pagePath = `/${[
+      node.frontmatter.category,
+      node.frontmatter.subcategory,
+      node.frontmatter.title,
+    ]
+      .map(el => titleSlug(el))
+      .join('/')}`
     createNodeField({
       node,
       name: `pagePath`,

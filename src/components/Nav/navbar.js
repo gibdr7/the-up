@@ -8,7 +8,7 @@ const Navbar = () => (
 		<nav className="navbar gradientBg">
 			<div className="container is-fluid">
 				<a className="navbar-item" href="/">
-          <h1 className="title is-1 is-uppercase has-text-white-ter no-hover">The up</h1>
+          <h1 className="title is-size-3 is-uppercase has-text-white-ter no-hover">The up</h1>
         </a>
         <a href="/" role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
           <span aria-hidden="true"></span>
