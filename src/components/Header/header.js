@@ -3,7 +3,7 @@ import React from 'react'
 import './style.scss'
 
 const Header = ({ siteTitle }) => (
-  <section className="hero gradientBg is-fullheight-with-navbar">
+  <section className="hero colorGradient is-fullheight-with-navbar">
     <div className="hero-body">
       <div className="container center">
         <article className="media">

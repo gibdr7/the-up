@@ -20,6 +20,10 @@ div.breadcrumb-container .breadcrumb a{
 	color: $sand-tan-shadow;
 }
 
+.category-container {
+	margin-top: 20px;
+}
+
 ul {
 	display: flex;
 }
@@ -31,6 +35,10 @@ h1 + a {
 	padding: 0 6px;
 }
 
+.category-container a {
+	color: $sand-tan;
+}
+
 .pageNumbers {
 	margin: 20px 0;
 	display: flex;
@@ -39,6 +47,10 @@ h1 + a {
 
 .tile.is-ancestor:not(:last-child) {
 	margin: 20px 0;
+}
+
+.tile.is-child.box a {
+	color: $sand-tan;
 }
 
 ul.numbers li {

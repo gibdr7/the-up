@@ -8,12 +8,12 @@
 	font-size: .9rem;
 }
 
-.gradientBg {
+.colorGradient {
 	display: flex;
 	background: linear-gradient(to left, $night-blue, $sand-tan);
 }
 
-nav.navbar.gradientBg div.container {
+nav.navbar.colorGradient div.container {
 	width: 100%;
     padding: 0 64px;
 }
@@ -28,6 +28,7 @@ div.dropdown-menu {
 
 div a.dropdown-item {
 	font-size: 1rem;
+	color: white;
 }
 
 .icon.no-padding {
@@ -44,4 +45,27 @@ div a.dropdown-item {
 	height:15px;
 	margin-left: 3px;
 	margin-right: 3px;
+}
+
+#nav-toggle-state {
+	display: none;
+  }
+  
+#nav-toggle-state:checked ~ .navbar-menu {
+	display: block;
+	background: transparent;
+	float: right;
+	text-align: right;
+}
+
+.navbar-menu .navbar-end .navbar-item .dropdown .dropdown-menu .dropdown-content {
+	background-color: transparent;
+}
+
+// #nav-toggle-state:checked ~ .navbar-menu .navbar-end .navbar-item .dropdown .dropdown-menu .dropdown-content .navbar-item {
+// 	display: contents;
+// }
+
+#nav-toggle-state:checked ~ .navbar-menu .navbar-end .navVR {
+	display: none;
 }

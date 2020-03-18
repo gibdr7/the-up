@@ -1,26 +1,45 @@
-import React from 'react';
+import React from 'react'
 
-import './style.scss';
+import './style.scss'
 
 const Navbar = () => (
   <div className="hero-head is-hidden-mobile">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"></link>
-		<nav className="navbar gradientBg">
-			<div className="container is-fluid">
-				<a className="navbar-item" href="/">
-          <h1 className="title is-size-3 is-uppercase has-text-white-ter no-hover">The up</h1>
-        </a>
-        <a href="/" role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-				<div id="navbarMenuHeroA" className="navbar-menu">
-					<div className="navbar-end">
-						<span className="navbar-item">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    ></link>
+    <nav className="navbar colorGradient">
+      <div className="container">
+        <div className="navbar-brand">
+          <a className="navbar-item" href="/">
+            <h1 className="title is-size-3 is-uppercase has-text-white-ter no-hover">
+              The up
+            </h1>
+          </a>
+          <label
+            role="button"
+            className="navbar-burger burger"
+            aria-label="menu"
+            aria-expanded="false"
+            htmlFor="nav-toggle-state"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </label>
+        </div>
+        <input type="checkbox" id="nav-toggle-state" />
+        <div id="navbarMenuHeroA" className="navbar-menu">
+          <div className="navbar-end">
+            <span className="navbar-item">
               <div className="dropdown is-hoverable is-right">
                 <div className="dropdown-trigger">
-                  <a href="/money-management" className="navbarLink has-text-white" aria-haspopup="true" aria-controls="dropdown-menu">
+                  <a
+                    href="/money-management"
+                    className="navbarLink has-text-white"
+                    aria-haspopup="true"
+                    aria-controls="dropdown-menu"
+                  >
                     <span className="icon no-padding">
                       <i className="fas fa-dollar-sign"></i>
                     </span>
@@ -29,13 +48,23 @@ const Navbar = () => (
                 </div>
                 <div className="dropdown-menu" id="dropdown-menu" role="menu">
                   <div className="dropdown-content">
-                    <a href="/money-management/budgeting" className="dropdown-item">
+                    <a
+                      href="/money-management/budgeting"
+                      className="dropdown-item"
+                    >
                       Budgeting
                     </a>
-                    <a href="/money-management/investing" className="dropdown-item">
+                    <a
+                      href="/money-management/investing"
+                      className="dropdown-item"
+                    >
                       Investing
                     </a>
-                    <a href="/money-management/calculators" activeclassname="is-active" className="dropdown-item is-active">
+                    <a
+                      href="/money-management/calculators"
+                      activeclassname="is-active"
+                      className="dropdown-item is-active"
+                    >
                       Calculators
                     </a>
                     <hr className="dropdown-divider"></hr>
@@ -45,11 +74,16 @@ const Navbar = () => (
                   </div>
                 </div>
               </div>
-						</span>
-						<span className="navbar-item">
+            </span>
+            <span className="navbar-item">
               <div className="dropdown is-hoverable is-right">
                 <div className="dropdown-trigger">
-                  <a href="/jobs" className="navbarLink has-text-white" aria-haspopup="true" aria-controls="dropdown-menu">
+                  <a
+                    href="/jobs"
+                    className="navbarLink has-text-white"
+                    aria-haspopup="true"
+                    aria-controls="dropdown-menu"
+                  >
                     <span className="icon no-padding">
                       <i className="fas fa-suitcase"></i>
                     </span>
@@ -67,14 +101,19 @@ const Navbar = () => (
                   </div>
                 </div>
               </div>
-						</span>
+            </span>
             <div>
               <div className="navVR">&nbsp;</div>
             </div>
-						<span className="navbar-item">
+            <span className="navbar-item">
               <div className="dropdown is-hoverable is-right">
                 <div className="dropdown-trigger">
-                  <a href="/misc" className="navbarLink has-text-white" aria-haspopup="true" aria-controls="dropdown-menu">
+                  <a
+                    href="/misc"
+                    className="navbarLink has-text-white"
+                    aria-haspopup="true"
+                    aria-controls="dropdown-menu"
+                  >
                     <span className="icon no-padding">
                       <i className="fas fa-ellipsis-h"></i>
                     </span>
@@ -92,12 +131,12 @@ const Navbar = () => (
                   </div>
                 </div>
               </div>
-						</span>
-					</div>
-				</div>
-			</div>
-		</nav>
-	</div>
-);
+            </span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+)
 
-export default Navbar;
+export default Navbar

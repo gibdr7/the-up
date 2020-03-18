@@ -22,18 +22,20 @@ const blogCategoryTemplate = ({ data, pageContext }) => {
             <div class="tile is-4 is-vertical is-parent">
               {allMarkdownRemark.edges.map(({ node }) => {
                 return (
-                  <div className="tile is-child box">
-                    <Link to={node.fields.pagePath}>
-                      <h1>{node.frontmatter.title}</h1>
-                    </Link>
-                    <p>{node.frontmatter.date}</p>
-                    <p>
-                      In:{' '}
-                      <Link to={`/${kebabCase(node.frontmatter.category)}`}>
-                        {node.frontmatter.category}
+                  <a href={node.fields.pagePath}>
+                    <div className="tile is-child box">
+                      <Link to={node.fields.pagePath}>
+                        <h1>{node.frontmatter.title}</h1>
                       </Link>
-                    </p>
-                  </div>
+                      <p>{node.frontmatter.date}</p>
+                      <p>
+                        In:{' '}
+                        <Link to={`/${kebabCase(node.frontmatter.category)}`}>
+                          {node.frontmatter.category}
+                        </Link>
+                      </p>
+                    </div>
+                  </a>
                 )
               })}
             </div>
