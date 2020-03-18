@@ -14,7 +14,7 @@ const blogListTemplate = ({ data, pageContext }) => {
               <h1>{node.frontmatter.title}</h1>
             </Link>
             <p>{node.frontmatter.date}</p>
-            <p>In: {node.frontmatter.category.join()}</p>
+            <p>In: {node.frontmatter.category}</p>
           </>
         )
       })}
