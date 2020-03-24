@@ -12,6 +12,8 @@ module.exports = {
     gatsby: 'https://www.gatsbyjs.org/',
     bulma: 'https://bulma.io/',
     siteUrl: 'http://localhost:8000',
+    email: "gibdr7@gmail.com",
+    phone: "904-302-4301",
   },
   plugins: [
     'gatsby-plugin-react-helmet',

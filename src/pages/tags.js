@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// Utilities
 import kebabCase from 'lodash/kebabCase'
-// Components
 import Layout from '../components/layout'
 import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import "./tags.scss";

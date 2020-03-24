@@ -19,9 +19,9 @@ const blogCategoryTemplate = ({ data, pageContext }) => {
             <Breadcrumb crumbs={crumbs} crumbSeparator=" / " />
           </div>
           <div className="tile is-ancestor">
-            <div class="tile is-4 is-vertical is-parent">
               {allMarkdownRemark.edges.map(({ node }) => {
                 return (
+              <div class="tile is-4 is-vertical is-parent">
                   <a href={node.fields.pagePath}>
                     <div className="tile is-child box">
                       <Link to={node.fields.pagePath}>
@@ -36,9 +36,9 @@ const blogCategoryTemplate = ({ data, pageContext }) => {
                       </p>
                     </div>
                   </a>
+              </div>
                 )
               })}
-            </div>
           </div>
 
           <div className="category-container has-text-centered">

@@ -135,7 +135,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       length: Math.ceil(countCategories[cat] / postsPerPage),
     }).forEach((_, i) => {
       createPage({
-        path: i === 0 ? link : `${link}/page/${i + 1}`,
+        path: i === 0 ? link : `${link}/${i + 1}`,
         component: blogCategoryTemplate,
         context: {
           allCategories: allCategories,

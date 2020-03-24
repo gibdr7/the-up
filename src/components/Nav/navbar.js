@@ -46,7 +46,7 @@ const Navbar = () => (
                     <span>Money Management</span>
                   </a>
                 </div>
-                <div className="dropdown-menu" id="dropdown-menu" role="menu">
+                <div className="dropdown-menu" role="menu">
                   <div className="dropdown-content">
                     <a
                       href="/money-management/budgeting"
@@ -90,7 +90,7 @@ const Navbar = () => (
                     <span>Jobs</span>
                   </a>
                 </div>
-                <div className="dropdown-menu" id="dropdown-menu" role="menu">
+                <div className="dropdown-menu" role="menu">
                   <div className="dropdown-content">
                     <a href="/jobs/" className="dropdown-item">
                       Strategy
@@ -120,7 +120,7 @@ const Navbar = () => (
                     <span>Misc</span>
                   </a>
                 </div>
-                <div className="dropdown-menu" id="dropdown-menu" role="menu">
+                <div className="dropdown-menu" role="menu">
                   <div className="dropdown-content">
                     <a href="/misc/more-calculators" className="dropdown-item">
                       More Calculators

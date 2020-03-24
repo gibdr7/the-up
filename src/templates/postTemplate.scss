@@ -2,10 +2,6 @@
 @import '../components/variables.scss';
 
 
-.gradient {
-	background: linear-gradient(to left, primary, $sand-tan);
-}
-
 .blog-post-container {
 	margin: 10px 40px;
 
@@ -23,7 +19,6 @@ div.breadcrumb-container .breadcrumb a{
 .title.is-2.has-text-centered.is-uppercase {
 	margin-top: 16px;
 	margin-bottom: 0;
-	// font-size: 48px;
 }
 
 div.subtitle.is-5.is-spaced {

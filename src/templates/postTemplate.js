@@ -5,6 +5,7 @@ import './postTemplate.scss'
 import Layout from '../components/layout'
 import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import { FaInstagram, FaGithub, FaFacebook } from "react-icons/fa";
+import SEO from '../components/seo'
 
 
 export default function Template({
@@ -19,6 +20,7 @@ export default function Template({
 
   return (
     <Layout>
+      <SEO title={frontmatter.title} />
       <div className="blog-post-container">
         <div className="breadcrumb-container">
           <Breadcrumb
