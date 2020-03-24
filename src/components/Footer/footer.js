@@ -1,5 +1,5 @@
 import React from "react";
-import { FaInstagram, FaGithub, FaFacebook } from "react-icons/fa";
+import { FaInstagram, FaGithub, FaFacebook, FaLinkedin } from "react-icons/fa";
 import { StaticQuery, graphql } from "gatsby";
 import "./style.scss";
 import Emoji from "../emoji";
@@ -15,6 +15,7 @@ const Footer = () => (
             instagram
             facebook
             github
+            linkedin
           }
         }
       }
@@ -47,6 +48,12 @@ const Footer = () => (
             <span className="icon">
               <a href={data.site.siteMetadata.facebook}>
                 <FaFacebook size="28px" />
+              </a>
+            </span>
+            &nbsp;
+            <span className="icon">
+              <a href={data.site.siteMetadata.linkedin}>
+                <FaLinkedin size="28px" />
               </a>
             </span>
             &nbsp;

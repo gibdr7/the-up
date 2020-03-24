@@ -9,6 +9,7 @@ module.exports = {
     instagram: 'https://www.instagram.com/drew___gibson/',
     github: 'https://github.com/gibdr7',
     facebook: 'https://www.facebook.com/gibsondr',
+    linkedin: 'https://www.linkedin.com/in/drewrgibson',
     gatsby: 'https://www.gatsbyjs.org/',
     bulma: 'https://bulma.io/',
     siteUrl: 'http://localhost:8000',

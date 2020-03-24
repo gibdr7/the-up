@@ -1,6 +1,5 @@
 ---
 title: "Hello world!"
-# path: "/money-management/budgeting/my-first-budgeting-post"
 date: "2019-05-04"
 tags: ['save', 'cut costs']
 category: 'Money Management'
