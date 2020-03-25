@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
 import './postTemplate.scss'
 import Layout from '../components/layout'
@@ -37,19 +37,19 @@ export default function Template({
           <div className="social-container">
             <article className="media center">
               <span className="icon pads">
-                <a href={data.site}>
+                <a href={data.site.siteMetadata.instagram}>
                   <FaInstagram size="28px"/>
                 </a>
               </span>
               &nbsp;
               <span className="icon pads">
-                <a href={data.site}>
+                <a href={data.site.siteMetadata.github}>
                   <FaGithub size="28px"/>
                 </a>
               </span>
               &nbsp;
               <span className="icon pads">
-                <a href={data.site}>
+                <a href={data.site.siteMetadata.facebook}>
                   <FaFacebook size="28px"/>
                 </a>
               </span>
@@ -65,13 +65,13 @@ export default function Template({
           {frontmatter.tags.map((tag) => 
             <div className="control" key={tag}>
               <div className="tags has-addons">
-                <a href={"/tags/"+tag.replace(" ","-")} className="tag is-primary">{tag}</a>
+                <Link href={"/tags/"+tag.replace(" ","-")} className="tag is-primary">{tag}</Link>
               </div>
             </div>
           )}
             <div>
               <div>
-                <a href="/tags" className="tag is-primary is-light">See all tags</a>
+                <Link href="/tags" className="tag is-primary is-light">See all tags</Link>
               </div>
             </div>
           </div>

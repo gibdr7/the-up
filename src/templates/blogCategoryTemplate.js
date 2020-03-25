@@ -22,7 +22,7 @@ const blogCategoryTemplate = ({ data, pageContext }) => {
               {allMarkdownRemark.edges.map(({ node }) => {
                 return (
               <div class="tile is-4 is-vertical is-parent">
-                  <a href={node.fields.pagePath}>
+                  <Link href={node.fields.pagePath}>
                     <div className="tile is-child box">
                       <Link to={node.fields.pagePath}>
                         <h1>{node.frontmatter.title}</h1>
@@ -35,7 +35,7 @@ const blogCategoryTemplate = ({ data, pageContext }) => {
                         </Link>
                       </p>
                     </div>
-                  </a>
+                  </Link>
               </div>
                 )
               })}
@@ -62,9 +62,9 @@ const blogCategoryTemplate = ({ data, pageContext }) => {
                   {pageContext.currentPage === index ? (
                     <span>{index}</span>
                   ) : (
-                    <a className="pageNumberLink" href={link}>
+                    <Link className="pageNumberLink" href={link}>
                       {index}
-                    </a>
+                    </Link>
                   )}
                 </li>
               )

@@ -29,7 +29,7 @@ const blogListTemplate = ({ data, pageContext }) => {
               {pageContext.currentPage === index ? (
                 <span>{index}</span>
               ) : (
-                <a href={link}>{index}</a>
+                <Link href={link}>{index}</Link>
               )}
             </li>
           )

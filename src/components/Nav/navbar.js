@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, Link } from 'gatsby'
 
 import './style.scss'
 
@@ -32,11 +32,11 @@ const Navbar = () => (
         <nav className="navbar colorGradient">
           <div className="container">
             <div className="navbar-brand">
-              <a className="navbar-item" href="/">
+              <Link className="navbar-item" href="/">
                 <h1 className="title is-size-3 is-uppercase has-text-white-ter no-hover">
                   {data.site.siteMetadata.title}
                 </h1>
-              </a>
+              </Link>
               <label
                 role="button"
                 className="navbar-burger burger"
@@ -56,7 +56,7 @@ const Navbar = () => (
                   <span className="navbar-item">
                     <div className="dropdown is-hoverable is-right">
                       <div className="dropdown-trigger">
-                        <a
+                        <Link
                           href={
                             '/' +
                             navItem
@@ -72,12 +72,12 @@ const Navbar = () => (
                             <i className={"fas fa-"+NavbarLinks[navItem][0]}></i>
                           </span>
                           <span>{navItem}</span>
-                        </a>
+                        </Link>
                       </div>
                       <div className="dropdown-menu" role="menu">
                         <div className="dropdown-content">
                           {NavbarLinks[navItem][1].map(dropdownItem => (
-                            <a
+                            <Link
                               href={
                                 '/' +
                                 navItem
@@ -93,7 +93,7 @@ const Navbar = () => (
                               className="dropdown-item"
                             >
                               {dropdownItem}
-                            </a>
+                            </Link>
                           ))}
                         </div>
                       </div>
