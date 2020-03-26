@@ -1,12 +1,12 @@
 import React from 'react'
 
-import Helmet from './Helmet/helmet'
+import SEO from './seo'
 import Footer from './Footer/footer'
 import Navbar from './Nav/navbar'
 
-const Layout = ({ children }) => (
+const Layout = ({ title, children }) => (
   <div className="sticky-footer">
-    <Helmet />
+    <SEO title={title}/>
     <Navbar />
     {children}
     <Footer />

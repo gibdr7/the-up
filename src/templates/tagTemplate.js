@@ -17,7 +17,7 @@ const Tags = ({ pageContext, data }) => {
   } = pageContext
 
   return (
-    <Layout>
+    <Layout title={pageContext.tag}>
       <div className="tag-page-container">
         <div className="breadcrumb-container">
           <Breadcrumb crumbs={crumbs} crumbSeparator=" / " />

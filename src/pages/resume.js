@@ -2,7 +2,6 @@ import React from 'react'
 import { FaGithub, FaLinkedin, FaEnvelope, FaInstagram, FaFacebook } from 'react-icons/fa'
 
 import Layout from '../components/layout'
-import SEO from '../components/seo'
 
 import './resume.scss'
 
@@ -89,8 +88,7 @@ const Resume = () => (
       }
     `}
     render={data => (
-      <Layout>
-        <SEO title="Resume" />
+      <Layout title="Resume">
         <h1>Picture of me</h1>
         <h1>Bio description (linkedin)</h1>
         <div className="social">
