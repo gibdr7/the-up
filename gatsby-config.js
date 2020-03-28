@@ -6,7 +6,7 @@ module.exports = {
     description: 'Welcome to my blog, built with Gatsby + Bulma.',
     keywords:
       'Personal Finance, Travel, Credit Cards, Blog, Web developer, Web, Developer, CSS, HTML, JS, Javascript, Gatsby, Bulma Developer, CSS3, HTML5, Seo, Starter',
-    instagram: 'https://www.instagram.com/drew___gibson/',
+    instagram: 'https://www.instagram.com/theupsite/',
     github: 'https://github.com/gibdr7',
     facebook: 'https://www.facebook.com/gibsondr',
     linkedin: 'https://www.linkedin.com/in/drewrgibson',
@@ -19,6 +19,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -67,6 +68,12 @@ module.exports = {
         ],
         useClassNames: true,
       }
+    },
+    {
+      resolve: 'gatsby-source-instagram',
+      options: {
+        username: `theUpsite`,
+      },
     },
     {
       resolve: "gatsby-plugin-page-progress",

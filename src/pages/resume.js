@@ -1,5 +1,11 @@
 import React from 'react'
-import { FaGithub, FaLinkedin, FaEnvelope, FaInstagram, FaFacebook } from 'react-icons/fa'
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaInstagram,
+  FaFacebook,
+} from 'react-icons/fa'
 
 import Layout from '../components/layout'
 
@@ -92,10 +98,9 @@ const Resume = () => (
         <h1>Picture of me</h1>
         <h1>Bio description (linkedin)</h1>
         <div className="social">
-          {data.site.siteMetadata.instagram && (
-            <a href={data.site.siteMetadata.instagram}>
-              <FaInstagram className="social-icon" size="32" />
-            </a>
+          <a href="/instagram">
+            <FaInstagram className="social-icon" size="32" />
+          </a>
           )}
           {data.site.siteMetadata.github && (
             <a href={data.site.siteMetadata.github}>

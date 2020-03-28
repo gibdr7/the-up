@@ -34,7 +34,7 @@ const Footer = () => (
           </p>
           <article className="media center">
             <span className="icon">
-              <a href={data.site.siteMetadata.instagram}>
+              <a href="/instagram">
                 <FaInstagram size="28px" />
               </a>
             </span>

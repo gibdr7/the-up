@@ -1,0 +1,25 @@
+.insta-info {
+  margin: 12px 32px 0px 32px;
+  color: black;
+}
+
+.insta-info a {
+    color: black;
+}
+
+.insta-info a:hover {
+    color: #363636;
+}
+
+.vertical-align {
+  vertical-align: super;
+}
+
+.sticky-footer > div.tile.is-ancestor {
+  margin: 20px;
+  height: fit-content;
+}
+
+div.gatsby-image-wrapper {
+  width: 100%;
+}

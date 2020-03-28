@@ -33,7 +33,7 @@ export default function Template({
           <div className="social-container">
             <article className="media center">
               <span className="icon pads">
-                <a href={site.siteMetadata.instagram}>
+                <a href="/instagram">
                   <FaInstagram size="28px" />
                 </a>
               </span>
