@@ -21,7 +21,7 @@ const blogCategoryTemplate = ({ data, pageContext }) => {
           <div className="tile is-ancestor">
             {allMarkdownRemark.edges.map(({ node }) => {
               return (
-                <div class="tile is-4 is-vertical is-parent">
+                <div className="tile is-4 is-vertical is-parent">
                   <Link href={node.fields.pagePath}>
                     <div className="tile is-child box">
                       <Link to={node.fields.pagePath}>
