@@ -11,6 +11,12 @@ const blogCategoryTemplate = ({ data, pageContext }) => {
     breadcrumb: { crumbs },
   } = pageContext
   
+  const titleSlug = str =>
+  str
+    .toLowerCase()
+    .replace(/[^\w\d\s]+/g, '')
+    .replace(/\s+/g, '-')
+
   return (
     <Layout title={pageContext.category}>
       <div>
@@ -44,16 +50,16 @@ const blogCategoryTemplate = ({ data, pageContext }) => {
           <div className="category-container has-text-centered">
             {' '}
             <h1>Categories:</h1>
-            {pageContext.allCategories.map(cat => (
-              <Link to={`/${kebabCase(cat)}`}>{cat}</Link>
-            ))}
+             {pageContext.allCategories.map(cat => (
+               <Link to={`/${kebabCase(cat.fieldValue)}`}>{cat.fieldValue}</Link>
+             ))}
           </div>
         </div>
         <div className="pageNumbers has-text-centered">
           <ul className="numbers has-text-centered">
             {Array.from({ length: pageContext.numPages }).map((item, i) => {
               const index = i + 1
-              const category = kebabCase(pageContext.category)
+              const category = titleSlug(pageContext.category)
               const link =
                 index === 1 ? `/${category}` : `/${category}/page/${index}`
 

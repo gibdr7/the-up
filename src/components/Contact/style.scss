@@ -1,6 +1,11 @@
 // Importing variables
 @import '../variables.scss';
 
+label {
+    float: left;
+    width: 100%;
+}
+
 .inputs {
     background-color: white;
     width: 90%;

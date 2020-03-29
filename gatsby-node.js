@@ -13,8 +13,6 @@ exports.onPostBuild = ({ reporter }) => {
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
-  const blogPostTemplate = path.resolve(`src/templates/postTemplate.js`)
-  const tagTemplate = path.resolve('src/templates/tagTemplate.js')
 
   const result = await graphql(`
     {
@@ -42,6 +40,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           fieldValue
         }
       }
+      categoriesGroup: allMarkdownRemark(limit: 2000) {
+        group(field: frontmatter___category) {
+          fieldValue
+        }
+      }
+      subcategoriesGroup: allMarkdownRemark(limit: 2000) {
+        group(field: frontmatter___subcategory) {
+          fieldValue
+        }
+      }
     }
   `)
   // Handle errors
@@ -50,44 +58,78 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
+  const blogPostTemplate = path.resolve(`src/templates/postTemplate.js`)
   const posts = result.data.postsRemark.edges
-  posts.forEach(({ node }) => {
+  const subcategories = []
+
+  posts.forEach(post => {
+    subcategories.push(post.node.frontmatter.subcategory)
+
     createPage({
-      // path: node.frontmatter.path,  // TODO: if path provided, use that, otherwise format like below
-      path: `/${[
-        node.frontmatter.category,
-        node.frontmatter.subcategory,
-        node.frontmatter.title,
-      ]
-        .map(el => titleSlug(el))
-        .join('/')}`,
+      path: post.node.fields.pagePath,
       component: blogPostTemplate,
       context: {
-        tags: node.frontmatter.tags,
-        pagePath: `/${[
-          node.frontmatter.category,
-          node.frontmatter.subcategory,
-          node.frontmatter.title,
-        ]
-          .map(el => titleSlug(el))
-          .join('/')}`,
+        pagePath: post.node.fields.pagePath,
       },
     })
   })
-  // Extract tag data from query
-  const tags = result.data.tagsGroup.group
-  // Make tag pages
-  tags.forEach(tag => {
-    createPage({
-      path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
-      component: tagTemplate,
-      context: {
-        tag: tag.fieldValue,
-      },
-    })
-  })
-  const blogListTemplate = path.resolve(`./src/templates/blogListTemplate.js`)
+
+  const blogCategoryTemplate = path.resolve(
+    `./src/templates/blogCategoryTemplate.js`,
+  )
+  const categories = result.data.categoriesGroup.group
   const postsPerPage = 9
+  const numCategories = categories.length
+
+  categories.forEach(cat => {
+    const link = `/${_.kebabCase(titleSlug(cat.fieldValue))}`
+
+    Array.from({
+      length: numCategories,
+    }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? link : `${link}/${i + 1}`,
+        component: blogCategoryTemplate,
+        context: {
+          allCategories: categories,
+          category: cat.fieldValue,
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          currentPage: i + 1,
+          numPages: Math.ceil(numCategories / postsPerPage),
+        },
+      })
+    })
+  })
+
+  const countSubcategories = subcategories.reduce((prev, curr) => {
+    prev[curr] = (prev[curr] || 0) + 1
+    return prev
+  }, {})
+  const allSubcategories = Object.keys(countSubcategories)
+
+  allSubcategories.forEach((subcat, i) => {
+    const link = `/${_.kebabCase(subcat)}`
+
+    Array.from({
+      length: Math.ceil(countSubcategories[subcat] / postsPerPage),
+    }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? link : `${link}/${i + 1}`,
+        component: blogCategoryTemplate,
+        context: {
+          allSubcategories: allSubcategories,
+          subcategory: subcat,
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          currentPage: i + 1,
+          numPages: Math.ceil(countSubcategories[subcat] / postsPerPage),
+        },
+      })
+    })
+  })
+
+  const blogListTemplate = path.resolve(`./src/templates/blogListTemplate.js`)
   const postsWithoutFeatured = posts.filter(({ node }) => {
     return !node.frontmatter.featured
   })
@@ -105,47 +147,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   })
 
-  const blogCategoryTemplate = path.resolve(
-    `./src/templates/blogCategoryTemplate.js`,
-  )
-  const categories = []
+  const tagTemplate = path.resolve('src/templates/tagTemplate.js')
+  const tags = result.data.tagsGroup.group
 
-  posts.forEach((post, index) => {
-    categories.push(post.node.frontmatter.category)
-
+  tags.forEach(tag => {
     createPage({
-      path: post.node.fields.pagePath,
-      component: blogPostTemplate,
+      path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+      component: tagTemplate,
       context: {
-        pagePath: post.node.fields.pagePath,
+        tag: tag.fieldValue,
       },
-    })
-  })
-  const countCategories = categories.reduce((prev, curr) => {
-    prev[curr] = (prev[curr] || 0) + 1
-    return prev
-  }, {})
-
-  const allCategories = Object.keys(countCategories)
-
-  allCategories.forEach((cat, i) => {
-    const link = `/${_.kebabCase(cat)}`
-
-    Array.from({
-      length: Math.ceil(countCategories[cat] / postsPerPage),
-    }).forEach((_, i) => {
-      createPage({
-        path: i === 0 ? link : `${link}/${i + 1}`,
-        component: blogCategoryTemplate,
-        context: {
-          allCategories: allCategories,
-          category: cat,
-          limit: postsPerPage,
-          skip: i * postsPerPage,
-          currentPage: i + 1,
-          numPages: Math.ceil(countCategories[cat] / postsPerPage),
-        },
-      })
     })
   })
 }

@@ -1,78 +1,72 @@
 import React from 'react'
-import {
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
-  FaInstagram,
-  FaFacebook,
-} from 'react-icons/fa'
 
 import Layout from '../components/layout'
 
 import './resume.scss'
 
 import { StaticQuery, graphql } from 'gatsby'
+import SocialContainer from '../components/SocialContainer/socialContainer'
 
 const skills = [
   {
-    name: 'HTML',
-    level: 70,
-  },
-  {
-    name: 'CSS',
-    level: 60,
-  },
-  {
-    name: 'Javascript',
-    level: 50,
-  },
-  {
-    name: 'NodeJs',
+    name: 'React',
     level: 40,
   },
   {
-    name: 'React',
+    name: 'CSS',
+    level: 40,
+  },
+  {
+    name: 'Javascript',
+    level: 45,
+  },
+  {
+    name: 'Python',
+    level: 60,
+  },
+  {
+    name: 'SQL',
     level: 60,
   },
   {
     name: 'Git',
-    level: 70,
+    level: 40,
   },
 ]
 
 const jobs = [
   {
-    company: 'Lendico',
+    company: 'Lab49',
     begin: {
-      month: 'apr',
+      month: 'oct',
+      year: '2019',
+    },
+    duration: null,
+    occupation: 'Development Consultant',
+    description:
+      'I do stuff.',
+  },
+  {
+    company: 'ION Group',
+    begin: {
+      month: 'jul',
       year: '2018',
     },
     duration: null,
-    occupation: 'Frontend developer',
+    occupation: 'Corporate Development | M&A Analyst',
     description:
-      'I integrate the Frontend team responsible for developing and maintaining the online lending platform.',
+      'I do stuff.',
   },
   {
-    company: 'Anapro',
+    company: 'Adobe',
     begin: {
-      month: 'dec',
+      month: 'may',
       year: '2016',
     },
-    duration: '1 yr e 5 mos',
-    occupation: 'Fullstack developer',
+    duration: '6 mos',
+    occupation: 'Innovation Analyst',
     description:
-      'Development and maintenance, corrective and preventive, of web applications for the real estate market.',
-  },
-  {
-    company: 'Anapro',
-    begin: {
-      month: 'set',
-      year: '2012',
-    },
-    duration: '4 yrs e 3 mos',
-    occupation: 'Support Technician',
-    description:
-      'Responsible for the implementation and parameterization of the system, training and customer support. Acting also in person in real estate launches guaranteeing the success and good use of the tool.',
+      'I do stuff.',
   },
 ]
 
@@ -82,13 +76,8 @@ const Resume = () => (
       query resumeQuery {
         site {
           siteMetadata {
-            description
             author
             title
-            linkedin
-            github
-            facebook
-            instagram
           }
         }
       }
@@ -98,30 +87,7 @@ const Resume = () => (
         <h1>Picture of me</h1>
         <h1>Bio description (linkedin)</h1>
         <div className="social">
-          <a href="/instagram">
-            <FaInstagram className="social-icon" size="32" />
-          </a>
-          )}
-          {data.site.siteMetadata.github && (
-            <a href={data.site.siteMetadata.github}>
-              <FaGithub className="social-icon" size="32" />
-            </a>
-          )}
-          {data.site.siteMetadata.facebook && (
-            <a href={data.site.siteMetadata.facebook}>
-              <FaFacebook className="social-icon" size="32" />
-            </a>
-          )}
-          {data.site.siteMetadata.linkedin && (
-            <a href={data.site.siteMetadata.linkedin}>
-              <FaLinkedin className="social-icon" size="32" />
-            </a>
-          )}
-          {data.site.siteMetadata.email && (
-            <a href={`mailto:${data.site.siteMetadata.email}`}>
-              <FaEnvelope className="social-icon" size="32" />
-            </a>
-          )}
+          <SocialContainer/>
         </div>
         <div>
           <h1>{data.site.siteMetadata.title}</h1>

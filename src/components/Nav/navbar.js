@@ -8,8 +8,8 @@ const NavbarLinks = {
     'dollar-sign',
     ['Budgeting', 'Investing', 'Calculators'],
   ],
-  Jobs: ['suitcase', ['Interviews', 'Strategy', 'Industry Charts']],
-  Misc: ['ellipsis-h', ['More Calculators']],
+  'Jobs': ['suitcase', ['Interviews', 'Strategy', 'Industry Charts']],
+  'Misc': ['ellipsis-h', ['More Calculators']],
 }
 
 const Navbar = () => (
@@ -56,7 +56,7 @@ const Navbar = () => (
                   <span className="navbar-item">
                     <div className="dropdown is-hoverable is-right">
                       <div className="dropdown-trigger">
-                        <Link
+                        <a
                           href={
                             '/' +
                             navItem
@@ -72,12 +72,12 @@ const Navbar = () => (
                             <i className={"fas fa-"+NavbarLinks[navItem][0]}></i>
                           </span>
                           <span>{navItem}</span>
-                        </Link>
+                        </a>
                       </div>
                       <div className="dropdown-menu" role="menu">
                         <div className="dropdown-content">
                           {NavbarLinks[navItem][1].map(dropdownItem => (
-                            <Link
+                            <a
                               href={
                                 '/' +
                                 navItem
@@ -93,7 +93,7 @@ const Navbar = () => (
                               className="dropdown-item"
                             >
                               {dropdownItem}
-                            </Link>
+                            </a>
                           ))}
                         </div>
                       </div>

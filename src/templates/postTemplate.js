@@ -4,13 +4,13 @@ import { graphql, Link } from 'gatsby'
 import './postTemplate.scss'
 import Layout from '../components/layout'
 import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
-import { FaInstagram, FaGithub, FaFacebook } from 'react-icons/fa'
+import SocialContainer from '../components/SocialContainer/socialContainer'
 
 export default function Template({
   pageContext,
   data, // this prop will be injected by the GraphQL query below.
 }) {
-  const { markdownRemark, site } = data // data.markdownRemark holds your post data
+  const { markdownRemark } = data // data.markdownRemark holds your post data
   const { frontmatter, html, fields } = markdownRemark
   const {
     breadcrumb: { crumbs },
@@ -32,24 +32,7 @@ export default function Template({
           </div>
           <div className="social-container">
             <article className="media center">
-              <span className="icon pads">
-                <a href="/instagram">
-                  <FaInstagram size="28px" />
-                </a>
-              </span>
-              &nbsp;
-              <span className="icon pads">
-                <a href={site.siteMetadata.github}>
-                  <FaGithub size="28px" />
-                </a>
-              </span>
-              &nbsp;
-              <span className="icon pads">
-                <a href={site.siteMetadata.facebook}>
-                  <FaFacebook size="28px" />
-                </a>
-              </span>
-              &nbsp;
+              <SocialContainer />
             </article>
           </div>
           <div
@@ -96,14 +79,6 @@ export const pageQuery = graphql`
         readingTime {
           text
         }
-      }
-    }
-    site {
-      siteMetadata {
-        facebook
-        instagram
-        linkedin
-        github
       }
     }
   }
