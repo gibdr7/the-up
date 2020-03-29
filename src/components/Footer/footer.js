@@ -1,6 +1,5 @@
 import React from 'react'
 import './style.scss'
-import Emoji from '../emoji'
 import SocialContainer from '../SocialContainer/socialContainer'
 
 const Footer = () => (

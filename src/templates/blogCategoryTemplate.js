@@ -2,6 +2,7 @@ import React from 'react'
 import kebabCase from 'lodash/kebabCase'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/layout'
+import PostCard from '../components/PostCard/postCard'
 import './categoryPage.scss'
 import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 
@@ -10,12 +11,12 @@ const blogCategoryTemplate = ({ data, pageContext }) => {
   const {
     breadcrumb: { crumbs },
   } = pageContext
-  
+
   const titleSlug = str =>
-  str
-    .toLowerCase()
-    .replace(/[^\w\d\s]+/g, '')
-    .replace(/\s+/g, '-')
+    str
+      .toLowerCase()
+      .replace(/[^\w\d\s]+/g, '')
+      .replace(/\s+/g, '-')
 
   return (
     <Layout title={pageContext.category}>
@@ -26,33 +27,16 @@ const blogCategoryTemplate = ({ data, pageContext }) => {
           </div>
           <div className="tile is-ancestor">
             {allMarkdownRemark.edges.map(({ node }) => {
-              return (
-                <div className="tile is-4 is-vertical is-parent">
-                  <Link href={node.fields.pagePath}>
-                    <div className="tile is-child box">
-                      <Link to={node.fields.pagePath}>
-                        <h1>{node.frontmatter.title}</h1>
-                      </Link>
-                      <p>{node.frontmatter.date}</p>
-                      <p>
-                        In:{' '}
-                        <Link to={`/${kebabCase(node.frontmatter.category)}`}>
-                          {node.frontmatter.category}
-                        </Link>
-                      </p>
-                    </div>
-                  </Link>
-                </div>
-              )
+              return <PostCard post={node} excerpt inCat/>
             })}
           </div>
 
           <div className="category-container has-text-centered">
             {' '}
             <h1>Categories:</h1>
-             {pageContext.allCategories.map(cat => (
-               <Link to={`/${kebabCase(cat.fieldValue)}`}>{cat.fieldValue}</Link>
-             ))}
+            {pageContext.allCategories.map(cat => (
+              <Link to={`/${kebabCase(cat.fieldValue)}`}>{cat.fieldValue}</Link>
+            ))}
           </div>
         </div>
         <div className="pageNumbers has-text-centered">
@@ -94,8 +78,12 @@ export const query = graphql`
     ) {
       edges {
         node {
+          excerpt
           fields {
             pagePath
+            readingTime {
+              text
+            }
           }
           frontmatter {
             title

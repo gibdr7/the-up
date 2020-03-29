@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// Components
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import '../pages/tags.scss'
+import PostCard from '../components/PostCard/postCard'
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
@@ -26,12 +26,9 @@ const Tags = ({ pageContext, data }) => {
           <h1 className="is-title is-size-3">{tagHeader}</h1>
           <ul className="has-text-weight-bold">
             {edges.map(({ node }) => {
-              const { title } = node.frontmatter
-              const { pagePath } = node.fields
+              console.log(node)
               return (
-                <li key={pagePath}>
-                  <Link to={pagePath}>{title}</Link>
-                </li>
+              <PostCard post={node} excerpt inCat/>
               )
             })}
           </ul>
@@ -80,11 +77,17 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
-          frontmatter {
-            title
-          }
+          excerpt
           fields {
             pagePath
+            readingTime {
+              text
+            }
+          }
+          frontmatter {
+            title
+            date
+            category
           }
         }
       }

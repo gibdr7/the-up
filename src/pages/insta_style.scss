@@ -4,11 +4,11 @@
 }
 
 .insta-info a {
-    color: black;
+  color: black;
 }
 
 .insta-info a:hover {
-    color: #363636;
+  color: #363636;
 }
 
 .vertical-align {
@@ -22,4 +22,8 @@
 
 div.gatsby-image-wrapper {
   width: 100%;
+}
+
+.has-margin-top {
+  margin-top: 20px;
 }

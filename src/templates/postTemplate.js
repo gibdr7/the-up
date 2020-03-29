@@ -70,6 +70,7 @@ export const pageQuery = graphql`
   query {
     markdownRemark {
       html
+      excerpt
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
@@ -78,6 +79,9 @@ export const pageQuery = graphql`
       fields {
         readingTime {
           text
+          minutes
+          time
+          words
         }
       }
     }

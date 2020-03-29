@@ -1,41 +1,12 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
+import PostList from "../components/PostList/PostList"
 
 const blogListTemplate = ({ data, pageContext }) => {
   const { allMarkdownRemark } = data
 
   return (
-    <>
-      {allMarkdownRemark.edges.map(({ node }) => {
-
-        return (
-          <>
-            <Link to={node.fields.pagePath} key={node.frontmatter.title}>
-              <h1>{node.frontmatter.title}</h1>
-            </Link>
-            <p>{node.frontmatter.date}</p>
-            <p>In: {node.frontmatter.category}</p>
-          </>
-        )
-      })}
-
-      <ul>
-        {Array.from({ length: pageContext.numPages }).map((_, i) => {
-          const index = i + 1
-          const link = index === 1 ? "/blog" : `/blog/page/${index}`
-
-          return (
-            <li key={index}>
-              {pageContext.currentPage === index ? (
-                <span>{index}</span>
-              ) : (
-                <Link href={link}>{index}</Link>
-              )}
-            </li>
-          )
-        })}
-      </ul>
-    </>
+    <PostList posts={allMarkdownRemark.edges} pageContext={pageContext}/>
   )
 }
 
@@ -51,9 +22,13 @@ export const query = graphql`
     ) {
       edges {
         node {
+          excerpt
           fields {
             slug
             pagePath
+            readingTime {
+              text
+            }
           }
           frontmatter {
             title
