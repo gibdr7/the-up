@@ -12,6 +12,7 @@ module.exports = {
     linkedin: 'https://www.linkedin.com/in/drewrgibson',
     gatsby: 'https://www.gatsbyjs.org/',
     bulma: 'https://bulma.io/',
+    spotify: 'https://open.spotify.com/user/1265978112',
     siteUrl: 'http://localhost:8000',
     email: "gibdr7@gmail.com",
     phone: "904-302-4301",
