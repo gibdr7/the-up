@@ -5,7 +5,7 @@ import Layout from '../components/layout'
 import Header from '../components/Header/header'
 
 const IndexPage = () => (
-  <Layout>
+  <Layout title="Home">
     <Header />
   </Layout>
 )

@@ -20,7 +20,7 @@ const TagsPage = ({
   } = pageContext
 
   return (
-    <Layout>
+    <Layout title="Tags">
       <div className="tag-page-container">
         <div className="breadcrumb-container">
           <Breadcrumb crumbs={crumbs} crumbSeparator=" / " />

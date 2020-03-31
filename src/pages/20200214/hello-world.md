@@ -9,7 +9,7 @@ featured: true
 
 Hello, this is a blog post. Thanks for dropping in!
 
-<!-- ![Puppy](./puppy.jpg) -->
+![Puppy](./puppy.jpg)
 
 *check it out*
 __check it out__

@@ -72,7 +72,7 @@ export const query = graphql`
   query blogPostsListByCategory($category: String, $skip: Int!, $limit: Int!) {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { category: { in: [$category] } } }
+      filter: { frontmatter: { category: { eq: $category } } }
       limit: $limit
       skip: $skip
     ) {

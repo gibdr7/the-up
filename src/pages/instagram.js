@@ -7,7 +7,7 @@ import { FaInstagram } from 'react-icons/fa'
 
 export default ({ data }) => {
   return (
-    <Layout>
+    <Layout title="Instagram">
       <div className="insta-info">
         <a href={data.site.siteMetadata.instagram}>
           <FaInstagram size="28px" />

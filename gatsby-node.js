@@ -22,13 +22,22 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       ) {
         edges {
           node {
+            html
+            excerpt
             fields {
               slug
               pagePath
+              readingTime {
+                text
+                minutes
+                time
+                words
+              }
             }
             frontmatter {
               title
               category
+              date(formatString: "MMMM DD, YYYY")
               subcategory
               tags
             }
@@ -58,18 +67,22 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
-  const blogPostTemplate = path.resolve(`src/templates/postTemplate.js`)
+  const postTemplate = path.resolve(`src/templates/postTemplate.js`)
   const posts = result.data.postsRemark.edges
   const subcategories = []
 
-  posts.forEach(post => {
+  posts.forEach((post, index) => {
+    const previous = index === posts.length - 1 ? null : posts[index + 1].node
+    const next = index === 0 ? null : posts[index - 1].node
     subcategories.push(post.node.frontmatter.subcategory)
 
     createPage({
       path: post.node.fields.pagePath,
-      component: blogPostTemplate,
+      component: postTemplate,
       context: {
         pagePath: post.node.fields.pagePath,
+        previous,
+        next,
       },
     })
   })
@@ -109,7 +122,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const allSubcategories = Object.keys(countSubcategories)
 
   allSubcategories.forEach((subcat, i) => {
-    const link = `/${_.kebabCase(subcat)}`
+    const link = `/replacewithcategory/${_.kebabCase(subcat)}`
 
     Array.from({
       length: Math.ceil(countSubcategories[subcat] / postsPerPage),

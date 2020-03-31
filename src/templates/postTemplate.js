@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import './postTemplate.scss'
 import Layout from '../components/layout'
@@ -8,10 +8,10 @@ import SocialContainer from '../components/SocialContainer/socialContainer'
 
 export default function Template({
   pageContext,
-  data, // this prop will be injected by the GraphQL query below.
+  data,
 }) {
-  const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { frontmatter, html, fields } = markdownRemark
+  const post = data.markdownRemark
+  const { frontmatter, html, fields } = post
   const {
     breadcrumb: { crumbs },
   } = pageContext
@@ -44,20 +44,20 @@ export default function Template({
           {frontmatter.tags.map(tag => (
             <div className="control" key={tag}>
               <div className="tags has-addons">
-                <Link
+                <a
                   href={'/tags/' + tag.replace(' ', '-')}
                   className="tag is-primary"
                 >
                   {tag}
-                </Link>
+                </a>
               </div>
             </div>
           ))}
           <div>
             <div>
-              <Link href="/tags" className="tag is-primary is-light">
+              <a href="/tags" className="tag is-primary is-light">
                 See all tags
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -67,8 +67,8 @@ export default function Template({
 }
 
 export const pageQuery = graphql`
-  query {
-    markdownRemark {
+  query postQuery($pagePath: String!) {
+    markdownRemark(fields: { pagePath: { eq: $pagePath } }) {
       html
       excerpt
       frontmatter {
