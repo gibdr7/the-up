@@ -37,16 +37,6 @@ div a.dropdown-item {
 	margin: 0;
 }
 
-.navVR {
-	margin-top: 19px;
-	width:1px;
-	border-left: 1px white;
-	border-right: 1px white;
-	height:15px;
-	margin-left: 3px;
-	margin-right: 3px;
-}
-
 #nav-toggle-state {
 	display: none;
   }
@@ -62,9 +52,9 @@ div a.dropdown-item {
 	background-color: transparent;
 }
 
-// #nav-toggle-state:checked ~ .navbar-menu .navbar-end .navbar-item .dropdown .dropdown-menu .dropdown-content .navbar-item {
-// 	display: contents;
-// }
+#nav-toggle-state:checked ~ .navbar-menu .navbar-end .navbar-item .dropdown .dropdown-menu .dropdown-content .navbar-item {
+	display: contents;
+}
 
 #nav-toggle-state:checked ~ .navbar-menu .navbar-end .navVR {
 	display: none;

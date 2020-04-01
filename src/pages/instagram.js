@@ -20,7 +20,7 @@ export default ({ data }) => {
 }
 
 export const query = graphql`
-  query {
+  query instagram{
     site {
       siteMetadata {
         instagram
