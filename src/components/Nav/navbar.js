@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
 
 import './style.scss'
+import { titleSlug } from '../../helpers/methods'
 
 const NavbarLinks = {
   'Money Management': [
@@ -32,7 +33,7 @@ const Navbar = () => (
         <nav className="navbar colorGradient">
           <div className="container">
             <div className="navbar-brand">
-              <Link className="navbar-item" href="/">
+              <Link className="navbar-item" to="/">
                 <h1 className="title is-size-3 is-uppercase has-text-white-ter no-hover">
                   {data.site.siteMetadata.title}
                 </h1>
@@ -59,10 +60,7 @@ const Navbar = () => (
                         <a
                           href={
                             '/' +
-                            navItem
-                              .toLowerCase()
-                              .replace(/[^\w\d\s]+/g, '')
-                              .replace(/\s+/g, '-')
+                            titleSlug(navItem)
                           }
                           className="navbarLink has-text-white"
                           aria-haspopup="true"
@@ -80,15 +78,9 @@ const Navbar = () => (
                             <a
                               href={
                                 '/' +
-                                navItem
-                                  .toLowerCase()
-                                  .replace(/[^\w\d\s]+/g, '')
-                                  .replace(/\s+/g, '-') +
+                                titleSlug(navItem) +
                                 '/' +
-                                dropdownItem
-                                  .toLowerCase()
-                                  .replace(/[^\w\d\s]+/g, '')
-                                  .replace(/\s+/g, '-')
+                                titleSlug(dropdownItem)
                               }
                               className="dropdown-item"
                             >

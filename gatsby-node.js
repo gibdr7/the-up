@@ -47,16 +47,19 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       tagsGroup: allMarkdownRemark(limit: 2000) {
         group(field: frontmatter___tags) {
           fieldValue
+          totalCount
         }
       }
       categoriesGroup: allMarkdownRemark(limit: 2000) {
         group(field: frontmatter___category) {
           fieldValue
+          totalCount
         }
       }
       subcategoriesGroup: allMarkdownRemark(limit: 2000) {
         group(field: frontmatter___subcategory) {
           fieldValue
+          totalCount
         }
       }
     }
@@ -69,19 +72,26 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const postTemplate = path.resolve(`src/templates/postTemplate.js`)
   const posts = result.data.postsRemark.edges
-  const subcategories = []
+  const catSubcatMapping = {}
 
   posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node
+    const prev = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
-    subcategories.push(post.node.frontmatter.subcategory)
+    const catSubcat = {
+      key: post.node.frontmatter.category,
+      val: post.node.frontmatter.subcategory,
+    }
+    if (!catSubcatMapping[catSubcat.key]) {
+      catSubcatMapping[catSubcat.key] = []
+    }
+    catSubcatMapping[catSubcat.key].push(catSubcat.val)
 
     createPage({
       path: post.node.fields.pagePath,
       component: postTemplate,
       context: {
         pagePath: post.node.fields.pagePath,
-        previous,
+        prev,
         next,
       },
     })
@@ -94,8 +104,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const postsPerPage = 9
   const numCategories = categories.length
 
-  categories.forEach(cat => {
-    const link = `/${_.kebabCase(titleSlug(cat.fieldValue))}`
+  for (var cat in catSubcatMapping) {
+    const link = `/${titleSlug(cat)}`
 
     Array.from({
       length: numCategories,
@@ -105,42 +115,46 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         component: blogCategoryTemplate,
         context: {
           allCategories: categories,
-          category: cat.fieldValue,
+          category: cat,
           limit: postsPerPage,
           skip: i * postsPerPage,
           currentPage: i + 1,
-          numPages: Math.ceil(numCategories / postsPerPage),
+          numPages: Math.ceil(categories.totalCount / postsPerPage),
         },
       })
     })
-  })
+  }
 
-  const countSubcategories = subcategories.reduce((prev, curr) => {
-    prev[curr] = (prev[curr] || 0) + 1
-    return prev
-  }, {})
-  const allSubcategories = Object.keys(countSubcategories)
+  const blogSubcategoryTemplate = path.resolve(
+    `./src/templates/blogSubcategoryTemplate.js`,
+  )
+  const subcategories = result.data.subcategoriesGroup.group
+  const numSubcategories = subcategories.length
 
-  allSubcategories.forEach((subcat, i) => {
-    const link = `/replacewithcategory/${_.kebabCase(subcat)}`
+  for (var cat in catSubcatMapping) {
+    const subcats = catSubcatMapping[cat]
+    subcats.forEach((subcat, i) => {
+      const link = `/${titleSlug(cat)}/${titleSlug(subcat)}`
 
-    Array.from({
-      length: Math.ceil(countSubcategories[subcat] / postsPerPage),
-    }).forEach((_, i) => {
-      createPage({
-        path: i === 0 ? link : `${link}/${i + 1}`,
-        component: blogCategoryTemplate,
-        context: {
-          allSubcategories: allSubcategories,
-          subcategory: subcat,
-          limit: postsPerPage,
-          skip: i * postsPerPage,
-          currentPage: i + 1,
-          numPages: Math.ceil(countSubcategories[subcat] / postsPerPage),
-        },
+      Array.from({
+        length: Math.ceil(numSubcategories / postsPerPage),
+      }).forEach((_, i) => {
+        createPage({
+          path: i === 0 ? link : `${link}/${i + 1}`,
+          component: blogSubcategoryTemplate,
+          context: {
+            allSubcategories: catSubcatMapping[cat],
+            subcategory: subcat,
+            category: cat,
+            limit: postsPerPage,
+            skip: i * postsPerPage,
+            currentPage: i + 1,
+            numPages: Math.ceil(subcategories.totalCount / postsPerPage),
+          },
+        })
       })
     })
-  })
+  }
 
   const blogListTemplate = path.resolve(`./src/templates/blogListTemplate.js`)
   const postsWithoutFeatured = posts.filter(({ node }) => {
@@ -165,7 +179,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   tags.forEach(tag => {
     createPage({
-      path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+      path: `/tags/${titleSlug(tag.fieldValue)}/`,
       component: tagTemplate,
       context: {
         tag: tag.fieldValue,
@@ -195,6 +209,15 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       node,
       name: `pagePath`,
       value: pagePath,
+    })
+    const catSubcategory = [
+      node.frontmatter.category,
+      node.frontmatter.subcategory,
+    ]
+    createNodeField({
+      node,
+      name: `catSubcategory`,
+      value: catSubcategory,
     })
   }
 }

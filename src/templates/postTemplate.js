@@ -1,15 +1,12 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
 import './postTemplate.scss'
 import Layout from '../components/layout'
 import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import SocialContainer from '../components/SocialContainer/socialContainer'
 
-export default function Template({
-  pageContext,
-  data,
-}) {
+export default function Template({ pageContext, data }) {
   const post = data.markdownRemark
   const { frontmatter, html, fields } = post
   const {
@@ -26,9 +23,8 @@ export default function Template({
           <h1 className="title is-2 has-text-centered is-uppercase">
             {frontmatter.title}
           </h1>
-          <div className="columns subtitle is-5 is-spaced">
-            <h3 className="column has-text-right">{frontmatter.date}</h3>
-            <h3 className="column">{fields.readingTime.text} </h3>
+          <div className="subtitle is-5 is-spaced has-text-centered">
+            {frontmatter.date} -- {fields.readingTime.text}
           </div>
           <div className="social-container">
             <article className="media center">
@@ -55,11 +51,23 @@ export default function Template({
           ))}
           <div>
             <div>
-              <a href="/tags" className="tag is-primary is-light">
+              <Link to="/tags" className="tag is-primary is-light">
                 See all tags
-              </a>
+              </Link>
             </div>
           </div>
+        </div>
+        <div className="prevNextNav">
+          {pageContext.prev ? (
+            <Link to={pageContext.prev.fields.pagePath} className="prevNav has-text-weight-semibold">
+              {'<'} {pageContext.prev.frontmatter.title}
+            </Link>
+          ) : <div className="prevNav"></div>}
+          {pageContext.next ? (
+            <Link to={pageContext.next.fields.pagePath} className="nextNav has-text-weight-semibold">
+              {pageContext.next.frontmatter.title} {'>'}
+            </Link>
+          ) : <div className="nextNav"></div>}
         </div>
       </div>
     </Layout>

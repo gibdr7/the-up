@@ -5,14 +5,14 @@ import Layout from '../components/layout'
 import PostCard from '../components/PostCard/postCard'
 import './categoryPage.scss'
 import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
-import { titleSlug }  from "../helpers/methods"
+import { titleSlug } from '../helpers/methods'
 
-
-const blogCategoryTemplate = ({ data, pageContext }) => {
+const blogSubcategoryTemplate = ({ data, pageContext }) => {
   const { allMarkdownRemark } = data
   const {
     breadcrumb: { crumbs },
   } = pageContext
+
 
   return (
     <Layout title={pageContext.category}>
@@ -23,15 +23,15 @@ const blogCategoryTemplate = ({ data, pageContext }) => {
           </div>
           <div className="tile is-ancestor">
             {allMarkdownRemark.edges.map(({ node }) => {
-              return <PostCard post={node} excerpt inCat/>
+              return <PostCard post={node} excerpt inSubcat/>
             })}
           </div>
 
           <div className="category-container has-text-centered">
             {' '}
-            <h1>Categories:</h1>
-            {pageContext.allCategories.map(cat => (
-              <Link to={`/${kebabCase(cat.fieldValue)}`}>{cat.fieldValue}</Link>
+            <h1>Topics in {pageContext.category}:</h1>
+            {pageContext.allSubcategories.map(subcat => (
+              <Link to={`/${kebabCase(subcat)}`}>{subcat}</Link>
             ))}
           </div>
         </div>
@@ -39,9 +39,9 @@ const blogCategoryTemplate = ({ data, pageContext }) => {
           <ul className="numbers has-text-centered">
             {Array.from({ length: pageContext.numPages }).map((item, i) => {
               const index = i + 1
-              const category = titleSlug(pageContext.category)
+              const subcategory = titleSlug(pageContext.subcategory)
               const link =
-                index === 1 ? `/${category}` : `/${category}/page/${index}`
+                index === 1 ? `/${subcategory}` : `/${subcategory}/page/${index}`
 
               return (
                 <li key={index}>
@@ -62,13 +62,13 @@ const blogCategoryTemplate = ({ data, pageContext }) => {
   )
 }
 
-export default blogCategoryTemplate
+export default blogSubcategoryTemplate
 
 export const query = graphql`
-  query blogPostsListByCategory($category: String, $skip: Int!, $limit: Int!) {
+  query blogPostsListBySubcategory($subcategory: String, $skip: Int!, $limit: Int!) {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { category: { eq: $category } } }
+      filter: { frontmatter: { subcategory: { eq: $subcategory } } }
       limit: $limit
       skip: $skip
     ) {
@@ -85,6 +85,7 @@ export const query = graphql`
             title
             date
             category
+            subcategory
           }
         }
       }

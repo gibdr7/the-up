@@ -2,12 +2,7 @@ import React from "react"
 import "./post-list.scss"
 import PostCard from "../PostCard/postCard"
 import { Link } from "gatsby"
-
-const titleSlug = str =>
-str
-  .toLowerCase()
-  .replace(/[^\w\d\s]+/g, '')
-  .replace(/\s+/g, '-')
+import { titleSlug } from "../../helpers/methods"
 
 const PostList = ({ posts, pageContext }) => {
   return (
@@ -29,7 +24,7 @@ const PostList = ({ posts, pageContext }) => {
               {pageContext.currentPage === index ? (
                 <span>{index}</span>
               ) : (
-                <Link href={link}>{index}</Link>
+                <Link to={link}>{index}</Link>
               )}
             </li>
           )

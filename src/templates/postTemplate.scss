@@ -1,58 +1,79 @@
 // Importing variables
 @import '../components/variables.scss';
 
-
 .blog-post-container {
-	margin: 10px 40px;
+  margin: 10px 40px;
 
-    display: grid;
-    grid-template-rows: max-content 1fr max-content;
-    grid-template-columns: 1fr;
-    row-gap: 1px;
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  grid-template-columns: 1fr;
+  row-gap: 1px;
 }
 
-div.breadcrumb-container .breadcrumb a{
-	text-transform: uppercase;
-	color: $sand-tan-shadow;
+div.breadcrumb-container .breadcrumb a {
+  text-transform: uppercase;
+  color: $sand-tan-shadow;
 }
 
 .title.is-2.has-text-centered.is-uppercase {
-	margin-top: 16px;
-	margin-bottom: 0;
+  margin-top: 16px;
+  margin-bottom: 0;
 }
 
-div.subtitle.is-5.is-spaced {
-	margin: 0;
-	display: flex;
+div.subtitle.is-5.is-spaced.has-text-centered {
+  margin: 6px 0 12px;
+  display: flex;
+  justify-content: center;
 }
 
 .social-container {
-	border-top: 1px rgb(174, 190, 207) solid;
-	border-bottom: 1px rgb(174, 190, 207) solid;
-	margin-bottom: 24px;
+  border-top: 1px rgb(174, 190, 207) solid;
+  border-bottom: 1px rgb(174, 190, 207) solid;
+  margin-bottom: 24px;
 }
 
 .media.center {
-	padding: 14px 0 4px;
+  padding: 14px 0 4px;
 }
 
 article section span.icon a {
-	border-bottom: none;
+  border-bottom: none;
 }
 
 .pads {
-	margin: 6px 6px;
+  margin: 6px 6px;
 }
 
 .icon a {
-	color: #4a4a4a;;
+  color: #4a4a4a;
 }
 
 div.blog-post-content {
-	font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .tagging.field.is-grouped {
-	margin: 20px 0;
-	justify-content: center;
+  margin: 20px 0;
+  justify-content: center;
+}
+
+.prevNextNav {
+  display: flex;
+}
+
+.prevNextNav .prevNav {
+  flex: 50%;
+  color: $night-blue;
+}
+
+.prevNextNav .prevNav:hover {
+  color: $sand-tan-shadow;
+}
+
+.prevNextNav .nextNav {
+  color: $night-blue;
+}
+
+.prevNextNav .nextNav:hover {
+  color: $sand-tan-shadow;
 }
