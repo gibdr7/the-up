@@ -4,9 +4,11 @@
   "version": "1.0.0",
   "author": "Drew Gibson <gibdr7@gmail.com>",
   "dependencies": {
+    "@material-ui/core": "^4.9.8",
     "@mdx-js/mdx": "^1.5.5",
     "@mdx-js/react": "^1.5.5",
     "bulma": "^0.8.0",
+    "classnames": "^2.2.6",
     "gatsby": "^2.20.8",
     "gatsby-image": "^2.3.1",
     "gatsby-plugin-breadcrumb": "^8.0.0",
@@ -34,8 +36,11 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.8.0",
+    "react-mdl": "^2.1.0",
+    "react-reveal": "^1.2.2",
     "react-spotify-api": "^2.4.0",
     "react-spring": "^9.0.0-beta.34",
+    "react-vertical-timeline-component": "^2.5.0",
     "styled-components": "^5.0.1"
   },
   "keywords": [

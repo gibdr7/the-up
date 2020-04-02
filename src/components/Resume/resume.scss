@@ -1,0 +1,260 @@
+// Importing variables
+@import '../variables.scss';
+
+.social span.icon {
+  padding: 0 24px;
+}
+
+.social a {
+  color: black;
+}
+
+// .vertical-timeline {
+//   width: 95%;
+//   max-width: 1170px;
+//   margin: 0 auto;
+//   position: relative;
+//   padding: 2em 0;
+// }
+
+// .vertical-timeline.vertical-timeline--two-columns:before {
+//   left: 50%;
+//   margin-left: -2px;
+// }
+
+// .vertical-timeline::before {
+//   content: '';
+//   position: absolute;
+//   top: 0;
+//   left: 18px;
+//   height: 100%;
+//   width: 4px;
+//   background: $night-blue;
+// }
+
+// .vertical-timeline::after {
+//   content: '';
+//   display: table;
+//   clear: both;
+// }
+
+// .vertical-timeline-element:first-child {
+//   margin-top: 0;
+// }
+
+// .vertical-timeline-element {
+//   margin: 4em 0;
+// }
+
+// .vertical-timeline-element {
+//   position: relative;
+//   margin: 2em 0;
+// }
+
+// .vertical-timeline * {
+//   -webkit-box-sizing: border-box;
+//   box-sizing: border-box;
+// }
+
+// .vertical-timeline-element:after {
+//   content: '';
+//   display: table;
+//   clear: both;
+// }
+
+// .vertical-timeline-element > div {
+//   min-height: 1px;
+// }
+
+// .vertical-timeline-element-icon.bounce-in {
+//   background: rgb(33, 150, 243);
+//   color: rgb(255, 255, 255);
+// }
+
+// .vertical-timeline--animate .vertical-timeline-element-icon.bounce-in {
+//   visibility: visible;
+//   -webkit-animation: cd-bounce-1 0.6s;
+//   animation: cd-bounce-1 0.6s;
+// }
+
+// .vertical-timeline--two-columns .vertical-timeline-element-icon {
+//   width: 60px;
+//   height: 60px;
+//   left: 50%;
+//   margin-left: -30px;
+// }
+
+// .vertical-timeline-element-icon {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 40px;
+//   height: 40px;
+//   border-radius: 50%;
+//   -webkit-box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08),
+//     0 3px 0 4px rgba(0, 0, 0, 0.05);
+//   box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08),
+//     0 3px 0 4px rgba(0, 0, 0, 0.05);
+// }
+
+// .vertical-timeline * {
+//   -webkit-box-sizing: border-box;
+//   box-sizing: border-box;
+// }
+
+// .vertical-timeline-element-icon svg {
+//   display: block;
+//   width: 24px;
+//   height: 24px;
+//   position: relative;
+//   left: 50%;
+//   top: 50%;
+//   margin-left: -12px;
+//   margin-top: -12px;
+// }
+// svg:not(:root) {
+//   overflow: hidden;
+// }
+
+// .MuiSvgIcon-root {
+//   fill: currentColor;
+//   width: 1em;
+//   height: 1em;
+//   display: inline-block;
+//   font-size: 1.5rem;
+//   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+//   flex-shrink: 0;
+//   user-select: none;
+// }
+// .vertical-timeline * {
+//   -webkit-box-sizing: border-box;
+//   box-sizing: border-box;
+// }
+// svg:not(:root) {
+//   overflow: hidden;
+// }
+
+// .vertical-timeline--animate .vertical-timeline-element-icon.bounce-in {
+//   visibility: visible;
+//   -webkit-animation: cd-bounce-1 0.6s;
+//   animation: cd-bounce-1 0.6s;
+// }
+
+// .vertical-timeline--animate .vertical-timeline-element-content.bounce-in {
+//   visibility: visible;
+//   -webkit-animation: cd-bounce-2 0.6s;
+//   animation: cd-bounce-2 0.6s;
+// }
+
+// .vertical-timeline--two-columns .vertical-timeline-element-content {
+//   margin-left: 0;
+//   padding: 1.5em;
+//   width: 44%;
+// }
+// .vertical-timeline-element--work .vertical-timeline-element-content {
+//   border-top: 3px solid #2196f3;
+// }
+// .vertical-timeline-element-content {
+//   position: relative;
+//   margin-left: 60px;
+//   background: white;
+//   border-radius: 0.25em;
+//   padding: 1em;
+//   -webkit-box-shadow: 0 3px 0 #ddd;
+//   box-shadow: 0 3px 0 #ddd;
+// }
+// .vertical-timeline * {
+//   -webkit-box-sizing: border-box;
+//   box-sizing: border-box;
+// }
+// .vertical-timeline-element-content {
+//   color: black;
+// }
+
+// .vertical-timeline-element-content.bounce-in {
+//   background: rgb(33, 150, 243);
+//   color: rgb(255, 255, 255);
+// }
+
+// .vertical-timeline-element-content:after {
+//   content: '';
+//   display: table;
+//   clear: both;
+// }
+
+// .vertical-timeline-element-content-arrow {
+//   content: '';
+//   position: absolute;
+//   top: 16px;
+//   right: 100%;
+//   height: 0;
+//   width: 0;
+//   border: 7px solid transparent;
+//   border-right: 7px solid white;
+// }
+
+// .vertical-timeline--animate .vertical-timeline-element-content.bounce-in {
+//   visibility: visible;
+//   -webkit-animation: cd-bounce-2 0.6s;
+//   animation: cd-bounce-2 0.6s;
+// }
+// .vertical-timeline-element-content {
+//   color: black;
+// }
+
+// .vertical-timeline-element-title {
+//   margin: 0;
+// }
+
+// .vertical-timeline-element-subtitle {
+//   margin: 0;
+// }
+
+// .vertical-timeline-element-content p {
+//   font-size: 16px;
+//   font-size: 1rem;
+// }
+
+// .vertical-timeline-element-content p {
+//   margin: 1em 0 0;
+//   line-height: 1.6;
+// }
+// .vertical-timeline-element-content p,
+// .vertical-timeline-element-content .vertical-timeline-element-date {
+//   font-size: 13px;
+//   font-size: 0.8125rem;
+//   font-weight: 500;
+// }
+
+// .vertical-timeline--two-columns
+//   .vertical-timeline-element-content
+//   .vertical-timeline-element-date {
+//   position: absolute;
+//   width: 100%;
+//   left: 124%;
+//   top: 6px;
+//   font-size: 16px;
+//   font-size: 1rem;
+// }
+
+// .vertical-timeline-element-content .vertical-timeline-element-date {
+//   float: left;
+//   padding: 0.8em 0;
+//   opacity: 0.7;
+// }
+// .vertical-timeline-element-content .vertical-timeline-element-date {
+//   display: inline-block;
+// }
+// .vertical-timeline-element-content p,
+// .vertical-timeline-element-content .vertical-timeline-element-date {
+//   font-size: 13px;
+//   font-size: 0.8125rem;
+//   font-weight: 500;
+// }
+// .vertical-timeline * {
+//   -webkit-box-sizing: border-box;
+//   box-sizing: border-box;
+// }
+// .vertical-timeline-element-date {
+//   color: #333;
+// }
