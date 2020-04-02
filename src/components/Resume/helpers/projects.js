@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 // import '../resume.scss'
 import {
   VerticalTimeline,
   VerticalTimelineElement,
-} from 'react-vertical-timeline-component'
-import 'react-vertical-timeline-component/style.min.css'
-import { FaSuitcase, FaSchool, FaStar } from 'react-icons/fa'
+} from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
+import { FaSuitcase, FaSchool, FaStar } from 'react-icons/fa';
 
 const Projects = () => {
   return (
