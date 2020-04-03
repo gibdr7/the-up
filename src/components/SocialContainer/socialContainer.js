@@ -40,9 +40,9 @@ const SocialContainer = () => (
           </a>
         </span>
         <span className="icon">
-          <a href={data.site.siteMetadata.spotify}>
+          <Link to='/spotify'>
             <FaSpotify size="28px"/>
-          </a>
+          </Link>
         </span>
       </section>
     )}

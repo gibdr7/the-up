@@ -1,38 +1,38 @@
-import React from "react";
-import { shape, string, object } from 'prop-types';
+import React from 'react'
 
-import { PageHelmet } from "../components/helmet/";
+import Image from 'gatsby-image'
+import "./spotify.scss"
 
-import styles from "./Spotify.module.css";
-
-const Spotify = ({ data: { allContentfulSpotifyPlaylist: playlists } }) => (
+const Spotify = ({ playlists }) => (
   <section>
-    <PageHelmet title='🔊 Spotify' />
     <header>
       <h1>Spotify</h1>
     </header>
-    <article className={styles.playlistItems}>
-        {/* playlist.map(({ node: { playlistTitle, playlistImageLocal, playlistUrl, playlistDescription } }) => ( */}
-        {/* playlist.map(({ node: { playlistTitle, playlistImageLocal, playlistUrl, playlistDescription } }) => ( */}
-          {/* <div className={styles.playlistItemContainer} key={playlistTitle}>
-            <h2>{playlistTitle}</h2>
-            {playlistDescription && <p className={styles.playlistDescription}>{playlistDescription}</p>}
-            <div className={styles.playlistItem}>
-              <img alt='Spotify Cover' className={styles.playlistImage} src={playlistImageLocal.file.url} />
-              <iframe
-                allowTransparency='true'
-                className={styles.spotifyEmbed}
-                frameBorder='0'
-                src={playlistUrl}
-                title={playlistTitle}
-              />
-            </div>
+    <article className="playlistItems">
+      {playlists.edges.map(({ node: { name, href, image, tracks, spotifyId } }) => (
+        <div className='playlistItemContainer' key={name}>
+          <h2>{name}</h2>
+          {/* {playlistDescription && (
+            <p className={styles.playlistDescription}>{playlistDescription}</p>
+          )} */}
+          <div className='playlistItem'>
+            <Image
+              fluid={image.localFile.childImageSharp.fluid}
+              key={spotifyId}
+              caption={name}
+            />
+            <iframe
+              allowTransparency="true"
+              className='spotifyEmbed'
+              frameBorder="0"
+              src={href.replace('api.spotify.com/v1/playlists','open.spotify.com/embed/playlist')}
+              title={name}
+            />
           </div>
-        ))
-      } */}
-      test
+        </div>
+      ))}
     </article>
   </section>
-);
+)
 
-export default Spotify;
+export default Spotify

@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: 'The Up',
@@ -55,6 +59,17 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-source-spotify`,
+      options: {
+        clientId: process.env.SPOTIFYID,
+        clientSecret: process.env.SPOTIFYSECRET,
+        refreshToken: process.env.SPOTIFYTOKEN,
+        fetchPlaylists: true, // optional. Set to false to disable fetching of your playlists
+        fetchRecent: true, // optional. Set to false to disable fetching of your recently played tracks
+        timeRanges: ['short_term', 'medium_term', 'long_term'], // optional. Set time ranges to be fetched
       },
     },
     {
