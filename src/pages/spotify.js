@@ -2,22 +2,28 @@ import React from 'react'
 import Layout from '../components/layout'
 import { FaSpotify } from 'react-icons/fa'
 import Spotify from '../components/Spotify/Spotify'
+import '../components/Spotify/spotify.scss'
+
+
 
 export default ({ data }) => {
-    console.log(data.playlists)
+  const playlists_to_keep = ['Hunter🔥', 'Full Circle 💫', 'All that Power', '🦁 carpe vitam 🚀', 'Indialtfolk', 'chill state']
+  const beginning_of_words = playlists_to_keep.map(playlist => playlist.substring(0,8))
+  const playlists = data.playlists.edges.filter(playlist => beginning_of_words.indexOf(playlist.node.name.substring(0,8)) >= 0)
   return (
     <Layout title="🔊 Spotify">
-      <div className="insta-info">
-        <a href={data.site.siteMetadata.spotify}>
-          <FaSpotify size="28px" />
-          <span className="vertical-align">Check out my Instagram</span>
-        </a>
+      <div>
+        <div className="spotify-info title is-3">
+          <a href={data.site.siteMetadata.spotify}>
+            <FaSpotify size="48px" />
+            <span className="check-it-out">Check out my Spotify</span>
+          </a>
+        </div>
+        <Spotify playlists={playlists} />
       </div>
-      <Spotify playlists={data.playlists} />
     </Layout>
   )
 }
-
 
 export const query = graphql`
   query SpotifyPlaylists {

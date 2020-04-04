@@ -96,7 +96,7 @@ module.exports = {
       options: {
         height: 5,
         prependToBody: false,
-        color: `#663399`,
+        color: `#2d545e`,
         excludePaths: ["/"],
       }
     },
