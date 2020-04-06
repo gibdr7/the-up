@@ -1,10 +1,10 @@
-import React from 'react'
-
 import './resume.scss'
 
 import { StaticQuery, graphql } from 'gatsby'
-import SocialContainer from '../SocialContainer/socialContainer'
+
 import Projects from './helpers/projects'
+import React from 'react'
+import SocialContainer from '../SocialContainer/socialContainer'
 
 const skills = [
   {

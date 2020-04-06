@@ -1,6 +1,6 @@
-import React from 'react'
-
 import './style.scss'
+
+import React from 'react'
 
 const Header = ({ siteTitle }) => (
   <section className="hero colorGradient is-fullheight-with-navbar">

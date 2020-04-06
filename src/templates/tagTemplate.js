@@ -1,10 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
-import Layout from '../components/layout'
-import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import '../pages/tags.scss'
+
+import { Link, graphql } from 'gatsby'
+
+import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
+import Layout from '../components/layout'
 import PostCard from '../components/PostCard/postCard'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext

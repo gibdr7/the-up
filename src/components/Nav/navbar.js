@@ -1,7 +1,8 @@
-import React from 'react'
-import { StaticQuery, graphql, Link } from 'gatsby'
-
 import './style.scss'
+
+import { Link, StaticQuery, graphql } from 'gatsby'
+
+import React from 'react'
 import { titleSlug } from '../../helpers/methods'
 
 const NavbarLinks = {

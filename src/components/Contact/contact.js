@@ -1,6 +1,8 @@
-import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
 import './style.scss'
+
+import { StaticQuery, graphql } from 'gatsby'
+
+import React from 'react'
 
 const ContactComponent = () => (
   <StaticQuery

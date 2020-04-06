@@ -1,8 +1,9 @@
-import React from 'react'
-import Layout from '../components/layout'
-import ContactComponent from '../components/Contact/contact'
-import AboutComponent from '../components/About/about'
 import '../components/About/style.scss'
+
+import AboutComponent from '../components/About/about'
+import ContactComponent from '../components/Contact/contact'
+import Layout from '../components/layout'
+import React from 'react'
 
 const About = () => (
   <Layout title="About">

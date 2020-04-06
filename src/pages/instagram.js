@@ -1,9 +1,10 @@
-import React from 'react'
-import Layout from '../components/layout'
-import { graphql } from 'gatsby'
-import Gallery from '../components/gallery'
 import './insta_style.scss'
+
 import { FaInstagram } from 'react-icons/fa'
+import Gallery from '../components/gallery'
+import Layout from '../components/layout'
+import React from 'react'
+import { graphql } from 'gatsby'
 
 export default ({ data }) => {
   return (

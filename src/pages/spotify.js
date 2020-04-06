@@ -1,10 +1,9 @@
-import React from 'react'
-import Layout from '../components/layout'
-import { FaSpotify } from 'react-icons/fa'
-import Spotify from '../components/Spotify/Spotify'
 import '../components/Spotify/spotify.scss'
 
-
+import { FaSpotify } from 'react-icons/fa'
+import Layout from '../components/layout'
+import React from 'react'
+import Spotify from '../components/Spotify/Spotify'
 
 export default ({ data }) => {
   const playlists_to_keep = ['Hunter🔥', 'Full Circle 💫', 'All that Power', '🦁 carpe vitam 🚀', 'Indialtfolk', 'chill state']

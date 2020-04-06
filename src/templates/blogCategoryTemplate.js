@@ -1,12 +1,13 @@
-import React from 'react'
-import kebabCase from 'lodash/kebabCase'
-import { graphql, Link } from 'gatsby'
+import './categoryPage.scss'
+
+import { Link, graphql } from 'gatsby'
+
+import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import Layout from '../components/layout'
 import PostCard from '../components/PostCard/postCard'
-import './categoryPage.scss'
-import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
+import React from 'react'
+import kebabCase from 'lodash/kebabCase'
 import { titleSlug }  from "../helpers/methods"
-
 
 const blogCategoryTemplate = ({ data, pageContext }) => {
   const { allMarkdownRemark } = data

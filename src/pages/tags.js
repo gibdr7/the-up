@@ -1,11 +1,13 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import kebabCase from 'lodash/kebabCase'
-import Layout from '../components/layout'
-import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import "./tags.scss";
 
 import { Link, graphql } from 'gatsby'
+
+import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
+import Layout from '../components/layout'
+import PropTypes from 'prop-types'
+import React from 'react'
+import kebabCase from 'lodash/kebabCase'
+
 const TagsPage = ({
   pageContext,
   data: {

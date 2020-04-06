@@ -1,7 +1,8 @@
-import React from "react"
 import "./post-list.scss"
-import PostCard from "../PostCard/postCard"
+
 import { Link } from "gatsby"
+import PostCard from "../PostCard/postCard"
+import React from "react"
 import { titleSlug } from "../../helpers/methods"
 
 const PostList = ({ posts, pageContext }) => {

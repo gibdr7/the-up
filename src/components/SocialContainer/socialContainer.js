@@ -1,7 +1,9 @@
-import React from 'react'
-import { StaticQuery, graphql, Link } from 'gatsby'
-import { FaInstagram, FaGithub, FaFacebook, FaLinkedin, FaSpotify } from 'react-icons/fa'
 import "./style.scss"
+
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaSpotify } from 'react-icons/fa'
+import { Link, StaticQuery, graphql } from 'gatsby'
+
+import React from 'react'
 
 const SocialContainer = () => (
   <StaticQuery

@@ -1,8 +1,7 @@
-import React from 'react'
-
-import SEO from './seo'
 import Footer from './Footer/footer'
 import Navbar from './Nav/navbar'
+import React from 'react'
+import SEO from './seo'
 
 const Layout = ({ title, children }) => (
   <div className="sticky-footer">

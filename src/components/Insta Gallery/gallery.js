@@ -1,6 +1,7 @@
-import React from 'react'
-import Image from 'gatsby-image'
 import '../pages/insta_style.scss'
+
+import Image from 'gatsby-image'
+import React from 'react'
 
 export default ({ posts }) => {
   const numPosts = posts.edges.length

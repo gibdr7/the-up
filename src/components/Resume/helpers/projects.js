@@ -1,11 +1,13 @@
-import React from 'react'
 import '../resume.scss'
+import 'react-vertical-timeline-component/style.min.css'
+
+import { FaSchool, FaStar, FaSuitcase } from 'react-icons/fa'
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from 'react-vertical-timeline-component'
-import 'react-vertical-timeline-component/style.min.css'
-import { FaSuitcase, FaSchool, FaStar } from 'react-icons/fa'
+
+import React from 'react'
 import moment from 'moment'
 
 const jobs = [

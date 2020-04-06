@@ -1,9 +1,10 @@
-import React from 'react'
-import { graphql, Link } from 'gatsby'
-
 import './postTemplate.scss'
-import Layout from '../components/layout'
+
+import { Link, graphql } from 'gatsby'
+
 import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
+import Layout from '../components/layout'
+import React from 'react'
 import SocialContainer from '../components/SocialContainer/socialContainer'
 
 export default function Template({ pageContext, data }) {

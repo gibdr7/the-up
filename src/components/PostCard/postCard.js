@@ -1,7 +1,8 @@
+import '../../pages/insta_style.scss'
+
+import { Link } from 'gatsby'
 import React from 'react'
 import kebabCase from 'lodash/kebabCase'
-import '../../pages/insta_style.scss'
-import { Link } from 'gatsby'
 
 const PostCard = ({ post, excerpt, inCat, inSubcat }) => (
   <div className="tile is-4 is-vertical is-parent">

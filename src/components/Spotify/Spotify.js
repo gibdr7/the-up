@@ -1,7 +1,7 @@
-import React from 'react'
+import "./spotify.scss"
 
 import Image from 'gatsby-image'
-import "./spotify.scss"
+import React from 'react'
 
 const Spotify = ({ playlists }) => (
   <section>
