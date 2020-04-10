@@ -27,10 +27,14 @@ const Tags = ({ pageContext, data }) => {
         <div className="tagsContainer has-text-centered">
           <h1 className="is-title is-size-3">{tagHeader}</h1>
           <ul className="has-text-weight-bold">
-            {edges.map(({ node }) => {
-              console.log(node)
+            {edges.map(({ node, i }) => {
               return (
-              <PostCard post={node} excerpt inCat/>
+                <PostCard
+                  key={node.frontmatter.title}
+                  post={node}
+                  excerpt
+                  inCat
+                />
               )
             })}
           </ul>
@@ -61,7 +65,7 @@ Tags.propTypes = {
             }),
             fields: PropTypes.shape({
               pagePath: PropTypes.string.isRequired,
-            })
+            }),
           }),
         }).isRequired,
       ),

@@ -13,7 +13,9 @@ div > h1 + .line-color::before {
   background: $sand-tan;
 }
 
-.vertical-timeline-element-icon + .vertical-timeline-element-content .vertical-timeline-element-date {
+.vertical-timeline-element-icon
+  + .vertical-timeline-element-content
+  .vertical-timeline-element-date {
   color: $sand-tan;
   font-weight: 800;
 }

@@ -2,12 +2,12 @@
 @import '../variables.scss';
 
 .colorGradient {
-	display: flex;
-	background: linear-gradient(to left, $night-blue, $sand-tan);
+  display: flex;
+  background: linear-gradient(to left, $night-blue, $sand-tan);
 }
 
 .center {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

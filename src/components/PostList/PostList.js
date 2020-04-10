@@ -1,24 +1,24 @@
-import "./post-list.scss"
+import './post-list.scss'
 
-import { Link } from "gatsby"
-import PostCard from "../PostCard/postCard"
-import React from "react"
-import { titleSlug } from "../../helpers/methods"
+import { Link } from 'gatsby'
+import PostCard from '../PostCard/postCard'
+import React from 'react'
+import { titleSlug } from '../../helpers/methods'
 
 const PostList = ({ posts, pageContext }) => {
   return (
     <>
-      {posts.map(({ node }) => {
-
+      {posts.map(({ node, i }) => {
         return (
-          <PostCard post={node} excerpt inCat/>
+          <PostCard key={node.frontmatter.title} post={node} excerpt inCat />
         )
       })}
 
       <ul>
         {Array.from({ length: pageContext.numPages }).map((_, i) => {
           const index = i + 1
-          const link = index === 1 ? "/" : `/${titleSlug(pageContext.category)}/${index}`
+          const link =
+            index === 1 ? '/' : `/${titleSlug(pageContext.category)}/${index}`
 
           return (
             <li key={index}>

@@ -28,6 +28,10 @@ const PostCard = ({ post, excerpt, inCat, inSubcat }) => (
           <p className="has-margin-top">
             <strong>
               In:{' '}
+              <Link to={`/${kebabCase(post.frontmatter.category)}`}>
+                {post.frontmatter.category}
+              </Link>
+              {' / '}
               <Link to={`/${kebabCase(post.frontmatter.subcategory)}`}>
                 {post.frontmatter.subcategory}
               </Link>

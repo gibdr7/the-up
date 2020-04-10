@@ -2,35 +2,35 @@
 @import '../variables.scss';
 
 label {
-    float: left;
-    width: 100%;
+  float: left;
+  width: 100%;
 }
 
 .inputs {
-    background-color: white;
-    width: 90%;
+  background-color: white;
+  width: 90%;
 }
 
 .inputs:focus {
-    outline-color: $night-blue;
+  outline-color: $night-blue;
 }
 
 div.field {
-    flex-grow: 0;
-    flex-shrink: 0;
-    padding: 1.5rem 0 0 1.5rem;
-    width: calc(100% - 1.5rem);
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: 1.5rem 0 0 1.5rem;
+  width: calc(100% - 1.5rem);
 }
 
 input.inputs {
-    height: 2.5rem;
+  height: 2.5rem;
 }
 
 textarea {
-    border-style: solid;
-    border-color: lightgray;
+  border-style: solid;
+  border-color: lightgray;
 }
 
 .button.is-light.is-normal {
-    margin: 0 20px 0 0;
+  margin: 0 20px 0 0;
 }

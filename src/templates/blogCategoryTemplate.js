@@ -7,7 +7,7 @@ import Layout from '../components/layout'
 import PostCard from '../components/PostCard/postCard'
 import React from 'react'
 import kebabCase from 'lodash/kebabCase'
-import { titleSlug }  from "../helpers/methods"
+import { titleSlug } from '../helpers/methods'
 
 const blogCategoryTemplate = ({ data, pageContext }) => {
   const { allMarkdownRemark } = data
@@ -23,22 +23,31 @@ const blogCategoryTemplate = ({ data, pageContext }) => {
             <Breadcrumb crumbs={crumbs} crumbSeparator=" / " />
           </div>
           <div className="tile is-ancestor">
-            {allMarkdownRemark.edges.map(({ node }) => {
-              return <PostCard post={node} excerpt inCat/>
+            {allMarkdownRemark.edges.map(({ node }, i) => {
+              return (
+                <PostCard
+                  key={node.frontmatter.title}
+                  post={node}
+                  excerpt
+                  inCat
+                />
+              )
             })}
           </div>
 
           <div className="category-container has-text-centered">
             {' '}
             <h1>Categories:</h1>
-            {pageContext.allCategories.map(cat => (
-              <Link to={`/${kebabCase(cat.fieldValue)}`}>{cat.fieldValue}</Link>
+            {pageContext.allCategories.map((cat, i) => (
+              <Link key={cat} to={`/${kebabCase(cat.fieldValue)}`}>
+                {cat.fieldValue}
+              </Link>
             ))}
           </div>
         </div>
         <div className="pageNumbers has-text-centered">
           <ul className="numbers has-text-centered">
-            {Array.from({ length: pageContext.numPages }).map((item, i) => {
+            {Array.from({ length: pageContext.numPages }).map((_, i) => {
               const index = i + 1
               const category = titleSlug(pageContext.category)
               const link =

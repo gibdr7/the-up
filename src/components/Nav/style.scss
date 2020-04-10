@@ -2,60 +2,83 @@
 @import '../variables.scss';
 
 .navbarLink {
-	vertical-align: middle;
-	border: none;
-	background: none;
-	font-size: .9rem;
+  vertical-align: middle;
+  border: none;
+  background: none;
+  font-size: 0.9rem;
 }
 
 .colorGradient {
-	display: flex;
-	background: linear-gradient(to left, $night-blue, $sand-tan);
+  display: flex;
+  background: linear-gradient(to left, $night-blue, $sand-tan);
 }
 
 nav.navbar.colorGradient div.container {
-	width: 100%;
-    padding: 0 64px;
+  width: 100%;
+  padding: 0 64px;
 }
 
-div a.navbar-item:hover {
-	background-color: transparent;
+div.Home
+  .navbar-menu
+  .navbar-end
+  .navbar-item
+  .dropdown
+  .dropdown-menu
+  .dropdown-content {
+  background-color: transparent;
+}
+
+div:not(.Home)
+  .navbar-menu
+  .navbar-end
+  .navbar-item
+  .dropdown
+  .dropdown-menu
+  .dropdown-content {
+  background-color: $night-blue;
 }
 
 div.dropdown-menu {
-	min-width: 100%;
+  min-width: 100%;
 }
 
 div a.dropdown-item {
-	font-size: 1rem;
-	color: white;
+  font-size: 1rem;
+  color: white;
+}
+
+div:not(.Home) div a.dropdown-item:hover {
+  background-color: $sand-tan;
 }
 
 .icon.no-padding {
-	padding: 0 12px;
-	border: 0;
-	margin: 0;
+  padding: 0 12px;
+  border: 0;
+  margin: 0;
 }
 
 #nav-toggle-state {
-	display: none;
-  }
-  
+  display: none;
+}
+
 #nav-toggle-state:checked ~ .navbar-menu {
-	display: block;
-	background: transparent;
-	float: right;
-	text-align: right;
+  display: block;
+  background: transparent;
+  float: right;
+  text-align: right;
 }
 
-.navbar-menu .navbar-end .navbar-item .dropdown .dropdown-menu .dropdown-content {
-	background-color: transparent;
-}
-
-#nav-toggle-state:checked ~ .navbar-menu .navbar-end .navbar-item .dropdown .dropdown-menu .dropdown-content .navbar-item {
-	display: contents;
+#nav-toggle-state:checked
+  ~ .navbar-menu
+  .navbar-end
+  .navbar-item
+  .dropdown
+  .dropdown-menu
+  .dropdown-content
+  .navbar-item {
+  display: contents;
 }
 
 #nav-toggle-state:checked ~ .navbar-menu .navbar-end .navVR {
-	display: none;
+  display: none;
 }

@@ -1,13 +1,11 @@
-import PostList from "../components/PostList/PostList"
-import React from "react"
-import { graphql } from "gatsby"
+import PostList from '../components/PostList/PostList'
+import React from 'react'
+import { graphql } from 'gatsby'
 
 const blogListTemplate = ({ data, pageContext }) => {
   const { allMarkdownRemark } = data
 
-  return (
-    <PostList posts={allMarkdownRemark.edges} pageContext={pageContext}/>
-  )
+  return <PostList posts={allMarkdownRemark.edges} pageContext={pageContext} />
 }
 
 export default blogListTemplate

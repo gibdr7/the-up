@@ -10,8 +10,8 @@ const NavbarLinks = {
     'dollar-sign',
     ['Budgeting', 'Investing', 'Calculators'],
   ],
-  'Jobs': ['suitcase', ['Interviews', 'Strategy', 'Industry Charts']],
-  'Misc': ['ellipsis-h', ['More Calculators']],
+  Jobs: ['suitcase', ['Interviews', 'Strategy', 'Industry Charts']],
+  Misc: ['ellipsis-h', ['More Calculators']],
 }
 
 const Navbar = () => (
@@ -54,29 +54,29 @@ const Navbar = () => (
             <input type="checkbox" id="nav-toggle-state" />
             <div id="navbarMenuHeroA" className="navbar-menu">
               <div className="navbar-end">
-                {Object.keys(NavbarLinks).map(navItem => (
-                  <span className="navbar-item">
+                {Object.keys(NavbarLinks).map((navItem, i) => (
+                  <span key={navItem} className="navbar-item">
                     <div className="dropdown is-hoverable is-right">
                       <div className="dropdown-trigger">
                         <a
-                          href={
-                            '/' +
-                            titleSlug(navItem)
-                          }
+                          href={'/' + titleSlug(navItem)}
                           className="navbarLink has-text-white"
                           aria-haspopup="true"
                           aria-controls="dropdown-menu"
                         >
                           <span className="icon no-padding">
-                            <i className={"fas fa-"+NavbarLinks[navItem][0]}></i>
+                            <i
+                              className={'fas fa-' + NavbarLinks[navItem][0]}
+                            ></i>
                           </span>
                           <span>{navItem}</span>
                         </a>
                       </div>
                       <div className="dropdown-menu" role="menu">
                         <div className="dropdown-content">
-                          {NavbarLinks[navItem][1].map(dropdownItem => (
+                          {NavbarLinks[navItem][1].map((dropdownItem, i) => (
                             <a
+                              key={dropdownItem}
                               href={
                                 '/' +
                                 titleSlug(navItem) +

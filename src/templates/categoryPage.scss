@@ -1,58 +1,58 @@
 @import '../components/variables.scss';
 
 .pageNumberLink {
-	color: $sand-tan-shadow;
-	font-size: 1em;
-	font-weight: 600;
+  color: $sand-tan-shadow;
+  font-size: 1em;
+  font-weight: 600;
 }
 
 .category-page-container {
-	margin: 10px 40px;
+  margin: 10px 40px;
 
-    display: grid;
-    grid-template-rows: max-content 1fr max-content 1fr;
-    grid-template-columns: 1fr;
-    row-gap: 1px;
+  display: grid;
+  grid-template-rows: max-content 1fr max-content 1fr;
+  grid-template-columns: 1fr;
+  row-gap: 1px;
 }
 
-div.breadcrumb-container .breadcrumb a{
-	text-transform: uppercase;
-	color: $sand-tan-shadow;
+div.breadcrumb-container .breadcrumb a {
+  text-transform: uppercase;
+  color: $sand-tan-shadow;
 }
 
 .category-container {
-	margin-top: 20px;
+  margin-top: 20px;
 }
 
 ul {
-	display: flex;
+  display: flex;
 }
 
 div ul li a,
 h1 + a {
-	line-height: normal;
-	color: $sand-tan;
-	padding: 0 6px;
+  line-height: normal;
+  color: $sand-tan;
+  padding: 0 6px;
 }
 
 .category-container a {
-	color: $sand-tan;
+  color: $sand-tan;
 }
 
 .pageNumbers {
-	margin: 20px 0;
-	display: flex;
-	justify-content: center;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
 }
 
 .tile.is-ancestor:not(:last-child) {
-	margin: 20px 0;
+  margin: 20px 0;
 }
 
 .tile.is-child.box a {
-	color: $sand-tan;
+  color: $sand-tan;
 }
 
 ul.numbers li {
-	margin: 0 2px;
+  margin: 0 2px;
 }

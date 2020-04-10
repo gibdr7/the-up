@@ -1,7 +1,7 @@
 import './insta_style.scss'
 
 import { FaInstagram } from 'react-icons/fa'
-import Gallery from '../components/gallery'
+import Gallery from '../components/InstaGallery/gallery'
 import Layout from '../components/layout'
 import React from 'react'
 import { graphql } from 'gatsby'
@@ -21,7 +21,7 @@ export default ({ data }) => {
 }
 
 export const query = graphql`
-  query instagram{
+  query instagram {
     site {
       siteMetadata {
         instagram

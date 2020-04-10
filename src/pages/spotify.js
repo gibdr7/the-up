@@ -4,11 +4,24 @@ import { FaSpotify } from 'react-icons/fa'
 import Layout from '../components/layout'
 import React from 'react'
 import Spotify from '../components/Spotify/Spotify'
+import { graphql } from 'gatsby'
 
 export default ({ data }) => {
-  const playlists_to_keep = ['Hunter🔥', 'Full Circle 💫', 'All that Power', '🦁 carpe vitam 🚀', 'Indialtfolk', 'chill state']
-  const beginning_of_words = playlists_to_keep.map(playlist => playlist.substring(0,8))
-  const playlists = data.playlists.edges.filter(playlist => beginning_of_words.indexOf(playlist.node.name.substring(0,8)) >= 0)
+  const playlists_to_keep = [
+    'Hunter🔥',
+    'Full Circle 💫',
+    'All that Power',
+    '🦁 carpe vitam 🚀',
+    'Indialtfolk',
+    'chill state',
+  ]
+  const beginning_of_words = playlists_to_keep.map(playlist =>
+    playlist.substring(0, 8),
+  )
+  const playlists = data.playlists.edges.filter(
+    playlist =>
+      beginning_of_words.indexOf(playlist.node.name.substring(0, 8)) >= 0,
+  )
   return (
     <Layout title="🔊 Spotify">
       <div>

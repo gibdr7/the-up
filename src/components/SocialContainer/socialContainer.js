@@ -1,6 +1,12 @@
-import "./style.scss"
+import './style.scss'
 
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaSpotify } from 'react-icons/fa'
+import {
+  FaFacebook,
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaSpotify,
+} from 'react-icons/fa'
 import { Link, StaticQuery, graphql } from 'gatsby'
 
 import React from 'react'
@@ -42,8 +48,8 @@ const SocialContainer = () => (
           </a>
         </span>
         <span className="icon">
-          <Link to='/spotify'>
-            <FaSpotify size="28px"/>
+          <Link to="/spotify">
+            <FaSpotify size="28px" />
           </Link>
         </span>
       </section>

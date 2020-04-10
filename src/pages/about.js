@@ -8,9 +8,9 @@ import React from 'react'
 const About = () => (
   <Layout title="About">
     <div className="columns">
-        <ContactComponent />
-        <AboutComponent />
-      </div>
+      <ContactComponent />
+      <AboutComponent />
+    </div>
   </Layout>
 )
 

@@ -8,4 +8,4 @@ const ResumePage = () => (
   </Layout>
 )
 
-export default ResumePage;
+export default ResumePage

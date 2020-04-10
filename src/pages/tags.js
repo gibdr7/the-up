@@ -1,4 +1,4 @@
-import "./tags.scss";
+import './tags.scss'
 
 import { Link, graphql } from 'gatsby'
 

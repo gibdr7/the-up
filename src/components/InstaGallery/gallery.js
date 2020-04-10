@@ -1,4 +1,4 @@
-import '../pages/insta_style.scss'
+import '../../pages/insta_style.scss'
 
 import Image from 'gatsby-image'
 import React from 'react'
@@ -10,8 +10,7 @@ export default ({ posts }) => {
   const nColumnPosts = num => {
     let columnPosts = []
     for (var i = 0; i < numRows; i++) {
-
-      if (num + 3 * i > numPosts-1) {
+      if (num + 3 * i > numPosts - 1) {
         continue
       }
 
@@ -20,10 +19,9 @@ export default ({ posts }) => {
       if (post) {
         let captionText = post.caption ? post.caption.text : 'Instagram Post'
         columnPosts.push(
-          <div className="tile is-child">
+          <div key={captionText} className="tile is-child">
             <Image
               fluid={post.localFile.childImageSharp.fluid}
-              key={i}
               caption={captionText}
             />
           </div>,

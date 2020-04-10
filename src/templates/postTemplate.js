@@ -60,15 +60,25 @@ export default function Template({ pageContext, data }) {
         </div>
         <div className="prevNextNav">
           {pageContext.prev ? (
-            <Link to={pageContext.prev.fields.pagePath} className="prevNav has-text-weight-semibold">
+            <Link
+              to={pageContext.prev.fields.pagePath}
+              className="prevNav has-text-weight-semibold"
+            >
               {'<'} {pageContext.prev.frontmatter.title}
             </Link>
-          ) : <div className="prevNav"></div>}
+          ) : (
+            <div className="prevNav"></div>
+          )}
           {pageContext.next ? (
-            <Link to={pageContext.next.fields.pagePath} className="nextNav has-text-weight-semibold">
+            <Link
+              to={pageContext.next.fields.pagePath}
+              className="nextNav has-text-weight-semibold"
+            >
               {pageContext.next.frontmatter.title} {'>'}
             </Link>
-          ) : <div className="nextNav"></div>}
+          ) : (
+            <div className="nextNav"></div>
+          )}
         </div>
       </div>
     </Layout>

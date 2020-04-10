@@ -6,7 +6,6 @@ import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import Layout from '../components/layout'
 import PostCard from '../components/PostCard/postCard'
 import React from 'react'
-import kebabCase from 'lodash/kebabCase'
 import { titleSlug } from '../helpers/methods'
 
 const blogSubcategoryTemplate = ({ data, pageContext }) => {
@@ -14,7 +13,6 @@ const blogSubcategoryTemplate = ({ data, pageContext }) => {
   const {
     breadcrumb: { crumbs },
   } = pageContext
-
 
   return (
     <Layout title={pageContext.category}>
@@ -24,26 +22,37 @@ const blogSubcategoryTemplate = ({ data, pageContext }) => {
             <Breadcrumb crumbs={crumbs} crumbSeparator=" / " />
           </div>
           <div className="tile is-ancestor">
-            {allMarkdownRemark.edges.map(({ node }) => {
-              return <PostCard post={node} excerpt inSubcat/>
+            {allMarkdownRemark.edges.map(({ node }, i) => {
+              return (
+                <PostCard
+                  key={node.frontmatter.title}
+                  post={node}
+                  excerpt
+                  inSubcat
+                />
+              )
             })}
           </div>
 
           <div className="category-container has-text-centered">
             {' '}
             <h1>Topics in {pageContext.category}:</h1>
-            {pageContext.allSubcategories.map(subcat => (
-              <Link to={`/${kebabCase(subcat)}`}>{subcat}</Link>
+            {pageContext.allSubcategories.map((subcat, i) => (
+              <Link key={subcat} to={`${titleSlug(pageContext.category)}/${titleSlug(subcat)}`}>
+                {subcat}
+              </Link>
             ))}
           </div>
         </div>
         <div className="pageNumbers has-text-centered">
           <ul className="numbers has-text-centered">
-            {Array.from({ length: pageContext.numPages }).map((item, i) => {
+            {Array.from({ length: pageContext.numPages }).map((_, i) => {
               const index = i + 1
               const subcategory = titleSlug(pageContext.subcategory)
               const link =
-                index === 1 ? `/${subcategory}` : `/${subcategory}/page/${index}`
+                index === 1
+                  ? `/${subcategory}`
+                  : `/${subcategory}/page/${index}`
 
               return (
                 <li key={index}>
@@ -67,7 +76,11 @@ const blogSubcategoryTemplate = ({ data, pageContext }) => {
 export default blogSubcategoryTemplate
 
 export const query = graphql`
-  query blogPostsListBySubcategory($subcategory: String, $skip: Int!, $limit: Int!) {
+  query blogPostsListBySubcategory(
+    $subcategory: String
+    $skip: Int!
+    $limit: Int!
+  ) {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { subcategory: { eq: $subcategory } } }

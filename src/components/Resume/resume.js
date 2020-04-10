@@ -59,8 +59,8 @@ const Resume = () => (
         <a href="https://onepagelove.com/peter-toth">like this</a>
         <div>
           <h1>{data.site.siteMetadata.title}</h1>
-          {skills.map(skill => (
-            <div>
+          {skills.map((skill, i) => (
+            <div key={skill}>
               <label>{skill.name}</label>
               <div id={`${skill.name}-bar`} className="skill__bar">
                 <div className="skill__level"></div>
