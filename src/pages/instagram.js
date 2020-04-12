@@ -1,4 +1,4 @@
-import './insta_style.scss'
+import '../components/InstaGallery/insta_style.scss'
 
 import { FaInstagram } from 'react-icons/fa'
 import Gallery from '../components/InstaGallery/gallery'
@@ -7,6 +7,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 export default ({ data }) => {
+  console.log(data)
   return (
     <Layout title="Instagram">
       <div className="insta-info">

@@ -1,4 +1,4 @@
-import '../../pages/insta_style.scss'
+import '../InstaGallery/insta_style.scss'
 
 import { Link } from 'gatsby'
 import React from 'react'

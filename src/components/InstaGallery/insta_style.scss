@@ -1,0 +1,94 @@
+@import '../variables.scss';
+
+.insta-info {
+  margin: 12px 32px 0px 32px;
+  color: black;
+}
+
+.insta-info a {
+  color: black;
+}
+
+.insta-info a:hover {
+  color: #363636;
+}
+
+.vertical-align {
+  vertical-align: super;
+}
+
+.sticky-footer > div.tile.is-ancestor {
+  margin: 20px;
+  height: fit-content;
+}
+
+.has-margin-top {
+  margin-top: 20px;
+}
+
+.sticky-footer > div.tile.is-ancestor {
+  margin: 0px;
+}
+
+.tile.is-parent.is-vertical {
+  padding: 0;
+}
+
+.tile.is-ancestor .tile.is-vertical > .tile.is-child:not(:last-child) {
+  margin-bottom: 0px !important;
+}
+
+.tile.is-child {
+  position: relative;
+}
+
+div.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  opacity: 0;
+  transition: all 0.3s ease 0s;
+}
+
+div.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-width: 600px;
+  max-height: 600px;
+  &:hover {
+    opacity: 1;
+    div.title {
+      opacity: 1;
+    }
+    div.bottom {
+      opacity: 1;
+    }
+  }
+}
+
+div.content {
+  color: $sand-tan;
+}
+
+div.title {
+  padding: 20px;
+  opacity: 0;
+  color: $sand-tan;
+}
+
+div.bottom {
+  padding: 20px;
+  bottom: 0;
+  opacity: 0;
+  width: 100%;
+  position: absolute;
+}
+
+div.bottom span:last-child {
+  float: right;
+}
