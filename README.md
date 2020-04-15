@@ -1,5 +1,7 @@
 # Welcome to The Up.
 
+![labels](https://static.robinpowered.com/blog/images/github-tagging-style/robin-github-issue-tag-system.png)
+
 
 ## Features 🚀
 
