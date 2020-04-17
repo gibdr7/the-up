@@ -1,6 +1,6 @@
 # Welcome to The Up.
 
-Demo: [the-up.netlify.com](the-up.netlify.com)
+Demo: [the-up.netlify.app/](https://the-up.netlify.app/)
 
 ![labels](https://static.robinpowered.com/blog/images/github-tagging-style/robin-github-issue-tag-system.png)
 
