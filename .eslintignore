@@ -1,0 +1,6 @@
+build
+node_modules
+public
+gatsby-config.js
+gatsby-node.js
+@types

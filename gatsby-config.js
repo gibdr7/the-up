@@ -1,6 +1,6 @@
-require("dotenv").config({
+require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
 
 module.exports = {
   siteMetadata: {
@@ -11,17 +11,18 @@ module.exports = {
     keywords:
       'Personal Finance, Travel, Credit Cards, Blog, Web developer, Web, Developer, CSS, HTML, JS, Javascript, Gatsby, Bulma Developer, CSS3, HTML5, Seo, Starter',
     instagram: 'https://www.instagram.com/theupsite/',
-    github: 'https://github.com/gibdr7',
+    github: 'https://github.com/gibdr7/the-up',
     facebook: 'https://www.facebook.com/gibsondr',
     linkedin: 'https://www.linkedin.com/in/drewrgibson',
     gatsby: 'https://www.gatsbyjs.org/',
     bulma: 'https://bulma.io/',
     spotify: 'https://open.spotify.com/user/1265978112',
     siteUrl: 'http://localhost:8000',
-    email: "gibdr7@gmail.com",
-    phone: "904-302-4301",
+    email: 'gibdr7@gmail.com',
+    phone: '904-302-4301',
   },
   plugins: [
+    `gatsby-plugin-typescript`,
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
@@ -55,7 +56,7 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1200,
-              wrapperStyle: 'margin: 10px;'
+              wrapperStyle: 'margin: 10px;',
             },
           },
         ],
@@ -68,7 +69,7 @@ module.exports = {
         clientSecret: process.env.SPOTIFYSECRET,
         refreshToken: process.env.SPOTIFYTOKEN,
         fetchPlaylists: true, // optional. Set to false to disable fetching of your playlists
-        fetchRecent: true, // optional. Set to false to disable fetching of your recently played tracks
+        fetchRecent: true, // optional.  false to disable fetching of your recently played tracks
         timeRanges: ['short_term', 'medium_term', 'long_term'], // optional. Set time ranges to be fetched
       },
     },
@@ -83,7 +84,7 @@ module.exports = {
           // `/offline-plugin-app-shell-fallback`,
         ],
         useClassNames: true,
-      }
+      },
     },
     {
       resolve: 'gatsby-source-instagram',
@@ -92,13 +93,13 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-page-progress",
+      resolve: 'gatsby-plugin-page-progress',
       options: {
         height: 5,
         prependToBody: false,
         color: `#2d545e`,
-        excludePaths: ["/"],
-      }
+        excludePaths: ['/'],
+      },
     },
     {
       resolve: 'gatsby-plugin-manifest',
@@ -114,16 +115,20 @@ module.exports = {
       },
     },
     'gatsby-plugin-sass',
-    { 
+    {
       resolve: `gatsby-plugin-purgecss`,
       options: {
-        printRejected: true, // Print removed selectors and processed file names
+        printRejected: false, // Print removed selectors and processed file names
         develop: true, // Enable while using `gatsby develop`
         // tailwind: true, // Enable tailwindcss support
         // whitelist: ['whitelist'], // Don't remove this selector
-        ignore: ['/main-style.scss', 'react-vertical-timeline-component/style.min.css', '/resume.scss'], // Ignore files/folders
+        ignore: [
+          '/main-style.scss',
+          'react-vertical-timeline-component/style.min.css',
+          '/resume.scss',
+        ], // Ignore files/folders
         // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
-      }
+      },
     },
     'gatsby-plugin-sitemap',
     // this (optional) plugin enables Progressive Web App + Offline functionality
@@ -137,4 +142,4 @@ module.exports = {
       },
     },
   ],
-}
+};

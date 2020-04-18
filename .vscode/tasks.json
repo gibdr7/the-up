@@ -6,7 +6,21 @@
         {
             "type": "npm",
             "script": "develop",
-            "problemMatcher": []
+            "label": "commence",
+            "problemMatcher": [],
+        },
+        {
+            "type": "npm",
+            "script": "lint:fix",
+            "label": "lint"
+        },
+        {
+            "type": "npm",
+            "script": "build",
+            "group": "build",
+            "problemMatcher": [],
+            "label": "npm: build",
+            "detail": "gatsby build"
         }
     ]
 }
