@@ -71,7 +71,7 @@ const SEO = ({ description, lang, keywords, title }: Props) => {
         },
       ]
         .concat(
-          keywords && keywords.length > 0 || site.siteMetadata.keywords > 0
+          keywords || site.siteMetadata.keywords.length > 0
             ? {
               name: `keywords`,
               content: site.siteMetadata.keywords.concat(keywords).join(`, `),

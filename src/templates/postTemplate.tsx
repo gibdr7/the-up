@@ -68,8 +68,7 @@ export default function Template({ pageContext, data }: MarkdownProps) {
               {'<'} {pageContext.prev.frontmatter.title}
             </Link>
             :
-            <div className="prevNav" />
-          }
+            <div className="prevNav" />}
           {pageContext.next ? (
             <Link
               to={pageContext.next.fields.pagePath}
@@ -78,8 +77,8 @@ export default function Template({ pageContext, data }: MarkdownProps) {
               {pageContext.next.frontmatter.title} {'>'}
             </Link>
           ) : (
-              <div className="nextNav" />
-            )}
+            <div className="nextNav" />
+          )}
         </div>
       </div>
     </Layout>

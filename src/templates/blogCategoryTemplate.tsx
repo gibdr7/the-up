@@ -56,10 +56,10 @@ const blogCategoryTemplate = ({ data, pageContext }: AllMarkdownProps) => {
                   {pageContext.currentPage === index ? (
                     <span>{index}</span>
                   ) : (
-                      <Link className="pageNumberLink" to={link}>
-                        {index}
-                      </Link>
-                    )}
+                    <Link className="pageNumberLink" to={link}>
+                      {index}
+                    </Link>
+                  )}
                 </li>
               );
             })}

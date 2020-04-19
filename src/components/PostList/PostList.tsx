@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import React from 'react';
 import PostCard from '../PostCard/postCard';
 import { titleSlug } from '../../utils/formatter';
-import { Node, ArchivePageContext } from '../../@types/context'
+import { Node, ArchivePageContext } from '../../@types/context';
 
 interface Posts {
   node: Node;
@@ -32,8 +32,8 @@ const PostList = ({ posts, pageContext }: Props) => (
             {pageContext.currentPage === index ? (
               <span>{index}</span>
             ) : (
-                <Link to={link}>{index}</Link>
-              )}
+              <Link to={link}>{index}</Link>
+            )}
           </li>
         );
       })}

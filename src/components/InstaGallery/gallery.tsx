@@ -16,6 +16,7 @@ export default ({ posts }: InstaPosts) => {
   posts.edges.sort((a, b) => (a.node.timestamp > b.node.timestamp ? -1 : 1));
 
   const nColumnPosts = num => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const columnPosts: any[] = [];
     for (let i = 0; i < numRows; i++) {
       if (num + 3 * i > numPosts - 1) {

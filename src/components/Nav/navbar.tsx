@@ -46,12 +46,12 @@ const Navbar = () => (
                 aria-expanded="false"
                 htmlFor="nav-toggle-state"
               >
+                <input type="checkbox" id="nav-toggle-state" />
                 <span aria-hidden="true" />
                 <span aria-hidden="true" />
                 <span aria-hidden="true" />
               </label>
             </div>
-            <input type="checkbox" id="nav-toggle-state" />
             <div id="navbarMenuHeroA" className="navbar-menu">
               <div className="navbar-end">
                 {Object.keys(NavbarLinks).map((navItem) => (
@@ -79,9 +79,9 @@ const Navbar = () => (
                               key={dropdownItem}
                               href={
                                 `/${
-                                titleSlug(navItem)
+                                  titleSlug(navItem)
                                 }/${
-                                titleSlug(dropdownItem)}`
+                                  titleSlug(dropdownItem)}`
                               }
                               className="dropdown-item"
                             >

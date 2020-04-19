@@ -8,7 +8,7 @@ const Spotify = ({ playlists }) => (
   <section>
     <article className="playlistItems">
       {playlists.map(
-        ({ node: { name, href, image, tracks, spotifyId } }: Playlists, _) => (
+        ({ node: { name, href, image, spotifyId } }: Playlists, _) => (
           <a
             key={name}
             href={href.replace(
