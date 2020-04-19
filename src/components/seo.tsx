@@ -10,7 +10,7 @@ interface Props {
   title: string;
 }
 
-const SEO = ({ description, lang, keywords, title }: Props) => {
+const SEO = ({ description, lang, keywords = [], title }: Props) => {
   const { site } = useStaticQuery(
     graphql`
       query DefaultSEOQuery {
@@ -28,6 +28,7 @@ const SEO = ({ description, lang, keywords, title }: Props) => {
   );
 
   const metaDescription = description || site.siteMetadata.description;
+  const siteKeywords = site.siteMetadata.keywords.split(', ');
 
   return (
     <Helmet
@@ -71,10 +72,10 @@ const SEO = ({ description, lang, keywords, title }: Props) => {
         },
       ]
         .concat(
-          keywords || site.siteMetadata.keywords.length > 0
+          keywords || site.siteMetadata.keywords
             ? {
               name: `keywords`,
-              content: site.siteMetadata.keywords.concat(keywords).join(`, `),
+              content: siteKeywords.concat(keywords).join(`, `),
             }
             : [],
         )}
