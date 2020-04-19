@@ -1,5 +1,8 @@
-const path = require('path')
-const _ = require('lodash')
+/* eslint-disable @typescript-eslint/no-var-requires */
+
+const path = require('path');
+const _ = require('lodash');
+
 const titleSlug = str =>
   str
     .toLowerCase()
@@ -70,7 +73,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
-  const postTemplate = path.resolve(`src/templates/postTemplate.js`)
+  const postTemplate = path.resolve(`src/templates/postTemplate.tsx`)
   const posts = result.data.postsRemark.edges
   const catSubcatMapping = {}
 
@@ -98,7 +101,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   })
 
   const blogCategoryTemplate = path.resolve(
-    `./src/templates/blogCategoryTemplate.js`,
+    `./src/templates/blogCategoryTemplate.tsx`,
   )
   const categories = result.data.categoriesGroup.group
   const postsPerPage = 9
@@ -126,7 +129,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   const blogSubcategoryTemplate = path.resolve(
-    `./src/templates/blogSubcategoryTemplate.js`,
+    `./src/templates/blogSubcategoryTemplate.tsx`,
   )
   const subcategories = result.data.subcategoriesGroup.group
   const numSubcategories = subcategories.length
@@ -156,10 +159,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   }
 
-  const blogListTemplate = path.resolve(`./src/templates/blogListTemplate.js`)
-  const postsWithoutFeatured = posts.filter(({ node }) => {
-    return !node.frontmatter.featured
-  })
+  const blogListTemplate = path.resolve(`./src/templates/blogListTemplate.tsx`)
+  const postsWithoutFeatured = posts.filter(
+    ({ node }) => !node.frontmatter.featured,
+  )
   const numPages = Math.ceil(postsWithoutFeatured.length / postsPerPage)
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
@@ -174,7 +177,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   })
 
-  const tagTemplate = path.resolve('src/templates/tagTemplate.js')
+  const tagTemplate = path.resolve('src/templates/tagTemplate.tsx')
   const tags = result.data.tagsGroup.group
 
   tags.forEach(tag => {

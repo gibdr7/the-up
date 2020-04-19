@@ -1,0 +1,12 @@
+{
+    "extends": [
+        "stylelint-config-recommended"
+    ],
+    "rules": {
+        "selector-pseudo-class-no-unknown": [true, {
+            "ignorePseudoClasses": ["local", "global"]
+        }],
+        "no-descending-specificity": null,
+        "selector-list-comma-newline-after": "always-multi-line"
+    }
+}

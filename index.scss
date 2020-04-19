@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialized;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+hr {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  max-height: 100%;
+  min-height: 100%;
+  height: 100%;
+  min-width: 1920px;
+}
+
+body {
+  font-family: 'Tillium Web', sans-serif;
+
+  --font: 'Tillium Web';
+  --font-weight-normal: 400;
+  --font-weight-bold: 500;
+  --font-weight-bolder: 600;
+  --font-weight-boldest: 700;
+
+  --primary-color: #00a9c3;
+
+  --blackest-color: #0000000;
+  --black: #1a1a1c;
+  --darker-gray: #192229;
+  --dark-blue: #1c2f40;
+  --dark-blue-2: #162a3a;
+  --dark-gray: #25313c;
+
+  --gray: #40494d;
+  --light-gray: #a5aaad;
+  --lighter-gray: #c8cfd1;
+  --lightest-gray: #d2d4d6;
+  --white: #e8e8e8;
+  --whitest-color: #f0f0f0f0;
+
+  --red: #ce4949;
+  --green: #71d24c;
+
+  --yellow: #f0b400;
+  --purple: #7d52c9;
+  --orange: #d77600;
+  --blue: #00c1d7;
+  --turquoise: #69eac9;
+
+  --text-color: #1a1a1c;
+}
+
+a[href],
+input[type='submit'],
+label[for],
+select,
+button {
+  cursor: pointer;
+}
+
+button:focus {
+  outline: 0;
+}
