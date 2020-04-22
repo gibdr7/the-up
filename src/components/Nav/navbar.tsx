@@ -44,9 +44,9 @@ const Navbar = () => (
                 className="navbar-burger burger"
                 aria-label="menu"
                 aria-expanded="false"
-                htmlFor="nav-toggle-state"
+                htmlFor="navToggleState"
               >
-                <input type="checkbox" id="nav-toggle-state" />
+                <input type="checkbox" id="navToggleState" />
                 <span aria-hidden="true" />
                 <span aria-hidden="true" />
                 <span aria-hidden="true" />
@@ -79,9 +79,9 @@ const Navbar = () => (
                               key={dropdownItem}
                               href={
                                 `/${
-                                  titleSlug(navItem)
+                                titleSlug(navItem)
                                 }/${
-                                  titleSlug(dropdownItem)}`
+                                titleSlug(dropdownItem)}`
                               }
                               className="dropdown-item"
                             >
