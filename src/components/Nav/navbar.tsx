@@ -4,6 +4,7 @@ import { Link, StaticQuery, graphql } from 'gatsby';
 
 import React from 'react';
 import { titleSlug } from "../../utils/formatter";
+// import Logo from '../../images/website-logo.png';
 
 const NavbarLinks = {
   'Money Management': [
@@ -36,6 +37,7 @@ const Navbar = () => (
             <div className="navbar-brand">
               <Link className="navbar-item" to="/">
                 <h1 className="title is-size-3 is-uppercase has-text-white-ter no-hover">
+                  {/* <img src={Logo} alt="gatsby-logo" /> */}
                   {data.site.siteMetadata.title}
                 </h1>
               </Link>

@@ -54,7 +54,7 @@ div.overlay {
   max-height: 600px;
   &:hover {
     opacity: 1;
-    div.title {
+    div.insta-title {
       opacity: 1;
     }
     div.bottom {
@@ -67,7 +67,7 @@ div.content {
   color: $sand-tan;
 }
 
-div.title {
+div.insta-title {
   padding: 20px;
   opacity: 0;
   color: $sand-tan;

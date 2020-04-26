@@ -33,7 +33,7 @@ export default ({ posts }: InstaPosts) => {
             <a href={`https://www.instagram.com/p/${post.id}`}>
               <div className="overlay">
                 <div className="content">
-                  <div className="title">{captionText}</div>
+                  <div className="insta-title">{captionText}</div>
                   <div className="bottom">
                     <span>
                       <FaHeart /> {post.likes}

@@ -1,7 +1,9 @@
 ---
 name: "Ink Preferred"
 bank: "Chase"
-date: "2019-05-04"
-referral: 'www.google.com'
-bonus: '80k'
+referral: 'https://www.google.com'
+bonus: '80k Points'
+priority: 1
 ---
+
+![CIP](./CIP.png)
