@@ -42,8 +42,15 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'pages',
+        name: 'posts',
         path: 'src/pages',
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `credit_cards`,
+        path: `src/credit_cards`,
       },
     },
     'gatsby-remark-reading-time',
