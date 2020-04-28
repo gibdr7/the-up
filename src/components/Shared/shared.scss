@@ -1,0 +1,382 @@
+   
+  .tabSet {
+    margin: 0;
+    width: 100%;
+    display: flex;
+  }
+   
+  .tab {
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 16px;
+    color: var(--black);
+    border: 1px solid var(--black);
+    background-color: #ccd5d8;
+    box-shadow: var(--toggle-btn-box-shadow);
+    text-transform: uppercase;
+    flex: 1;
+    width: 0;
+    overflow-wrap: break-word;
+  }
+   
+  .tab + .tab {
+    border-left: none;
+  }
+   
+  .tab.active {
+    color: var(--white);
+    background-color: var(--primary-color) !important;
+  }
+   
+  .tab.dark {
+    background-color: var(--gray);
+    color: var(--white);
+  }
+   
+  .tab.large {
+    height: 28px;
+  }
+   
+  .tabSet.separate .tab {
+    margin: 0 auto;
+  }
+  .tabSet.separate .tab:first-child {
+    margin-left: 0;
+  }
+  .tabSet.separate .tab:last-child {
+    margin-right: 0;
+  }
+   
+  .tabSet.shrink {
+    display: inline-block;
+    width: auto;
+  }
+  .tabSet.shrink .tab {
+    width: auto;
+  }
+   
+  .dropdown {
+    position: relative;
+  }
+   
+  .dropdown.inline {
+    display: inline-block;
+  }
+  .dropdown.primary {
+    --caret-color: var(--primary-color);
+  }
+  .dropdown.primary .select {
+    color: var(--primary-color);
+  }
+   
+  .select {
+    appearance: none;
+    display: block;
+    background-color: var(--gray);
+    border: 1px solid var(--black);
+    color: var(--white);
+    padding: 4px 8px;
+    padding-right: 24px;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: var(--font-weight-bolder);
+    height: 28px;
+  }
+   
+  .select option {
+    background-color: var(--white);
+    color: var(--black);
+    font-weight: var(--font-weight-bolder);
+  }
+   
+  .select.transparent {
+    background-color: transparent;
+    border-color: transparent;
+  }
+   
+  .select + .caret {
+    pointer-events: none;
+    position: absolute;
+    right: 8px;
+    top: calc(50% - 3px);
+   
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid var(--caret-color, var(--white));
+  }
+   
+  .input {
+    grid-area: input;
+    min-height: 28px;
+    width: 100%;
+    color: var(--input-text-color);
+    background-color: var(--input-color);
+    border: 1px solid var(--black);
+    padding: 0 8px;
+  }
+   
+  .input.dark {
+    --input-text-color: var(--white);
+    --input-color: var(--darker-gray);
+  }
+   
+  .input[type=number]::-webkit-inner-spin-button,
+  .input[type=number]::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+   
+  .button {
+    border: none;
+    background-color: var(--white);
+    color: var(--black);
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 4px;
+    height: 100%;
+  }
+   
+  .button:disabled {
+    opacity: .50;
+  }
+   
+  .button.submitting {
+    cursor: progress;
+  }
+   
+  .button.centered {
+    margin-left: auto;
+    margin-right: auto;
+  }
+   
+  .button.alignRight {
+    margin-left: auto;
+  }
+   
+  .button.large {
+    padding: 8px 60px;
+  }
+   
+  .button.marginless {
+    margin: 0;
+  }
+   
+  .field {
+    flex-grow: 1;
+    display: inline-block;
+   
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    grid-template-rows: 18px max-content auto;
+    grid-template-areas:
+      "label label"
+      "input input"
+      ".     error";
+  }
+   
+  .field + .field {
+    padding-left: 8px;
+  }
+   
+  .field.noPadding {
+    padding: 0;
+  }
+   
+  .field.inlineLabel {
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      ".     error"
+      "label input";
+    padding-left: 0;
+    padding-bottom: 8px;
+  }
+   
+  .field.inlineLabel:last-of-type {
+    padding-bottom: 0;
+  }
+   
+  .field.inlineLabel > .label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0;
+    padding-right: 8px;
+  }
+  .field.white .label {
+    color: var(--white);
+  }
+   
+  .field.spaceLeft {
+    margin-left: auto;
+  }
+   
+  .field.padTop {
+    margin-top: 16px;
+  }
+   
+  .field.shrink {
+    flex-grow: 0;
+    flex-shrink: 1;
+  }
+   
+  .field.centered {
+    display: flex;
+  }
+   
+  .field.centered > * {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .field.centered > .label {
+    padding-bottom: 0;
+  }
+   
+  .label {
+    display: inline-block;
+   
+    user-select: none;
+    text-transform: uppercase;
+    color: var(--text-color);
+    font-size: 12px;
+    font-weight: 600;
+    padding-bottom: 4px;
+  }
+   
+  .error {
+    color: var(--red);
+  }
+   
+  .errorMessage {
+    grid-area: error;
+    display: inline-block;
+    text-transform: uppercase;
+    color: var(--red);
+    font-size: 10px;
+    font-weight: 600;
+    text-align: right;
+    width: 100%;
+    user-select: none;
+    vertical-align: top;
+    margin-top: 2px;
+  }
+   
+  .radioWrapper.radioWrapper,
+  .checkboxWrapper.checkboxWrapper {
+    display: inline-block;
+    position: relative;
+    height: 16px;
+    width: 16px;
+    background-color: inherit;
+    color: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+   
+  .checkboxWrapper.dark .checkbox {
+    color: var(--darker-gray);
+    background-color: var(--darker-gray);
+  }
+   
+  .checkboxWrapper.marginLeft {
+    margin-left: 8px;
+  }
+   
+  .checkboxWrapper.marginRight {
+    margin-right: 8px;
+  }
+   
+  
+  .radioWrapper > .radio,
+  .checkboxWrapper > .checkbox {
+    display: inline-block;
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+   
+  .fakeCheckbox:checked + .checkbox {
+    color: black !important;
+    background-color: var(--checkmark-color-active) !important;
+  }
+   
+  .fakeCheckbox,
+  .radioWrapper > input {
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+   
+  .radioWrapper > input:checked + .radio {
+    display: flex;
+    background-color: var(--primary-color);
+  }
+   
+  .radioWrapper > input:checked + .radio > .inner {
+    border-radius: 999px;
+    background-color: var(--black);
+    display: inline-block;
+    margin: auto;
+    width: 8px;
+    height: 8px;
+  }
+   
+  .radioWrapper > .radio {
+    border-radius: 999px;
+    border: 1px solid var(--black);
+  }
+   
+  .required {
+    display: contents;
+    color: var(--red);
+    text-transform: uppercase;
+  }
+   
+  .switch {
+    padding: 3px;
+    color: var(--white);
+    display: inline-flex;
+    align-items: baseline;
+  }
+   
+  .switch.on {
+    background-color: var(--primary-color);
+  }
+   
+  .switch.off {
+    background-color: var(--black);
+  }
+   
+  .switch button {
+    background-color: unset;
+    color: unset;
+    border: none;
+    width: 38px;
+    padding: 4px 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+   
+  .switch button:disabled {
+    cursor: auto;
+  }
+   
+  .switch button.pause {
+    background-color: #40494D;
+    color: rgb(39, 45, 48);
+  }
+   
+  .switch button.pause svg {
+    position: relative;
+    top: 1.5px;
+  }
