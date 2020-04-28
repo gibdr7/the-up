@@ -1,0 +1,63 @@
+.cards {
+    width: 100%;
+    margin: 0px auto;
+    padding: 0px 35px;
+    background: rgb(247, 247, 247);
+    border-bottom: 0px;
+}
+
+.cards .cards-wrapper {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 1fr;
+    gap: 1px 1px;
+    grid-template-areas: "intro cards";
+}
+
+.cards .cards-intro {
+    background-color: rgb(15, 166, 106);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    position: relative;
+    padding: 8px 20px;
+    margin-bottom: 15px;
+    height: 100%;
+}
+
+.cards .cards-intro .title {
+    color: rgb(255, 255, 255);
+    font-family: Barlow, sans-serif;
+    font-size: 20px;
+    font-variation-settings: "wdth" 470, "wght" 80;
+    line-height: 24px;
+    text-transform: none;
+    word-spacing: 0px;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    margin: 0px;
+    padding: 15px 0px 5px;
+}
+
+
+.cards .chose-modal-toggle {
+    cursor: pointer;
+}
+
+.cards .cards-main {
+    margin: 10px 0;
+}
+
+.cards .card {
+    padding: 0 10px;
+    margin: 0 5px;
+}
+
+.cards-main {
+    display: flex;
+}

@@ -21,7 +21,7 @@ const ContactComponent = () => (
         <form method="post" action="#">
           <div className="field">
             <label htmlFor="name">
-              Name
+              <div>Name</div>
               <input
                 type="text"
                 name="name"
@@ -32,7 +32,7 @@ const ContactComponent = () => (
           </div>
           <div className="field">
             <label htmlFor="email">
-              Email
+              <div>Email</div>
               <input
                 type="email"
                 name="email"
@@ -43,7 +43,7 @@ const ContactComponent = () => (
           </div>
           <div className="field">
             <label htmlFor="subject">
-              Subject
+              <div>Subject</div>
               <input
                 type="text"
                 name="subject"
@@ -54,7 +54,7 @@ const ContactComponent = () => (
           </div>
           <div className="field">
             <label htmlFor="message">
-              Message
+              <div>Message</div>
               <textarea
                 name="message inputs"
                 id="message"

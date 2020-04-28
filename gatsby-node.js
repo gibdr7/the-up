@@ -28,7 +28,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             html
             excerpt
             fields {
-              slug
+              collection
               pagePath
               readingTime {
                 text
@@ -74,12 +74,17 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   const postTemplate = path.resolve(`src/templates/postTemplate.tsx`);
-  const posts = result.data.postsRemark.edges;
+  const allEdges = result.data.postsRemark.edges;
   const catSubcatMapping = {};
 
-  posts.forEach((post, index) => {
-    const prev = index === posts.length - 1 ? null : posts[index + 1].node;
-    const next = index === 0 ? null : posts[index - 1].node;
+  const postEdges = allEdges.filter(
+    edge => edge.node.fields.collection === `posts`,
+  );
+
+  postEdges.forEach((post, index) => {
+    const prev =
+      index === postEdges.length - 1 ? null : postEdges[index + 1].node;
+    const next = index === 0 ? null : postEdges[index - 1].node;
     const catSubcat = {
       key: post.node.frontmatter.category,
       val: post.node.frontmatter.subcategory,
@@ -94,6 +99,25 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: postTemplate,
       context: {
         pagePath: post.node.fields.pagePath,
+        prev,
+        next,
+      },
+    });
+  });
+
+  const ccEdges = allEdges.filter(
+    edge => edge.node.fields.collection === `credit_cards`,
+  );
+
+  ccEdges.forEach((creditCard, index) => {
+    const prev = index === ccEdges.length - 1 ? null : ccEdges[index + 1].node;
+    const next = index === 0 ? null : ccEdges[index - 1].node;
+
+    createPage({
+      path: creditCard.node.fields.pagePath,
+      component: postTemplate,
+      context: {
+        pagePath: creditCard.node.fields.pagePath,
         prev,
         next,
       },
@@ -159,23 +183,23 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     });
   }
 
-  const blogListTemplate = path.resolve(`./src/templates/blogListTemplate.tsx`);
-  const postsWithoutFeatured = posts.filter(
-    ({ node }) => !node.frontmatter.featured,
-  );
-  const numPages = Math.ceil(postsWithoutFeatured.length / postsPerPage);
-  Array.from({ length: numPages }).forEach((_, i) => {
-    createPage({
-      path: i === 0 ? `/blog` : `/blog/page/${i + 1}`,
-      component: blogListTemplate,
-      context: {
-        limit: postsPerPage,
-        skip: i * postsPerPage,
-        currentPage: i + 1,
-        numPages,
-      },
-    });
-  });
+  // const blogListTemplate = path.resolve(`./src/templates/blogListTemplate.tsx`);
+  // const postsWithoutFeatured = posts.filter(
+  //   ({ node }) => !node.frontmatter.featured,
+  // );
+  // const numPages = Math.ceil(postsWithoutFeatured.length / postsPerPage);
+  // Array.from({ length: numPages }).forEach((_, i) => {
+  //   createPage({
+  //     path: i === 0 ? `/blog` : `/blog/page/${i + 1}`,
+  //     component: blogListTemplate,
+  //     context: {
+  //       limit: postsPerPage,
+  //       skip: i * postsPerPage,
+  //       currentPage: i + 1,
+  //       numPages,
+  //     },
+  //   });
+  // });
 
   const tagTemplate = path.resolve('src/templates/tagTemplate.tsx');
   const tags = result.data.tagsGroup.group;
@@ -195,32 +219,49 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` });
+    // Get the parent node
+    const parent = getNode(_.get(node, 'parent'));
+
     createNodeField({
       node,
-      name: `slug`,
-      value: slug,
+      name: 'collection',
+      value: _.get(parent, 'sourceInstanceName'),
     });
-    const pagePath = `/${[
-      node.frontmatter.category,
-      node.frontmatter.subcategory,
-      node.frontmatter.title,
-    ]
-      .map(el => titleSlug(el))
-      .join('/')}`;
-    createNodeField({
-      node,
-      name: `pagePath`,
-      value: pagePath,
-    });
-    const catSubcategory = [
-      node.frontmatter.category,
-      node.frontmatter.subcategory,
-    ];
-    createNodeField({
-      node,
-      name: `catSubcategory`,
-      value: catSubcategory,
-    });
+    if (node.fields.collection === `posts`) {
+      const pagePath = `/${[
+        node.frontmatter.category,
+        node.frontmatter.subcategory,
+        node.frontmatter.title,
+      ]
+        .map(el => titleSlug(el))
+        .join('/')}`;
+      createNodeField({
+        node,
+        name: `pagePath`,
+        value: pagePath,
+      });
+      const catSubcategory = [
+        node.frontmatter.category,
+        node.frontmatter.subcategory,
+      ];
+      createNodeField({
+        node,
+        name: `catSubcategory`,
+        value: catSubcategory,
+      });
+    }
+    if (node.fields.collection === `credit_cards`) {
+      const pagePath = `/credit-cards/${[
+        node.frontmatter.bank,
+        node.frontmatter.name,
+      ]
+        .map(el => titleSlug(el))
+        .join('-')}`;
+      createNodeField({
+        node,
+        name: `pagePath`,
+        value: pagePath,
+      });
+    }
   }
 };
